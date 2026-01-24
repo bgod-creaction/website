@@ -190,6 +190,15 @@
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: inherit;
+      font-family: inherit;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    .chip:focus-visible {
+      outline: 2px solid rgba(63, 209, 167, 0.6);
+      outline-offset: 3px;
     }
 
     .cta-row {
@@ -315,8 +324,8 @@
 
     .events-grid {
       display: grid;
-      gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       justify-items: stretch;
       width: min(100%, 980px);
       max-width: 100%;
@@ -331,7 +340,7 @@
       align-self: start;
       border-radius: var(--radius);
       border: 1px solid var(--stroke);
-      padding: 12px;
+      padding: 10px;
       background: rgba(9, 12, 18, 0.15);
       box-shadow: var(--shadow);
       backdrop-filter: blur(6px);
@@ -376,18 +385,18 @@
     }
 
     .event-date {
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent);
     }
     .event-title {
-      font-size: 16px;
+      font-size: 14px;
       letter-spacing: 0.02em;
     }
 
     .event-style {
-      font-size: 14px;
+      font-size: 12px;
       color: var(--muted);
     }
 
@@ -516,13 +525,15 @@
 
       <div class="hero-card">
         <p class="eyebrow">Brazilian flavor in the German dancefloors</p>
+
         <h1>b.god</h1>
+
 <!--         <p class="tagline">creative reaction</p> -->
 
         <div class="chips">
           <div class="chip">Forró</div>            
           <div class="chip">Brazilian Funk</div>
-          <div class="chip">Bass House</div>
+          <button class="chip" type="button" data-audio="audios/input30.mp3" aria-pressed="false">Bass House</button>
           <div class="chip">Hardgroove</div>
           <div class="chip">Techno</div>
         </div>
@@ -556,7 +567,7 @@
 
     
     <section class="section" id="events">
-      <div class="section-title">Upcoming Events</div>
+      <div class="section-title">Upcoming Gigs</div>
       <div class="events-grid">
         <div class="event-card">
           <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Matinee de Carnaval event page">
@@ -591,17 +602,17 @@
 
 
     <section class="section" id="about">
-      <div class="section-title">About</div>
+      <div class="section-title"></div>
       <div class="about-grid">
         <div class="panel">
-          <h3>Identity</h3>
+          <h3>About</h3>
           <p>
-            b.god is a Brazilian-born DJ and producer based in Freiburg, Germany. He connects
-            Brazilian club energy with underground European soundscapes, building high-impact sets
-            for dance floors that want heat and precision.
+            b.god is a Brazilian-born DJ and Engineer based in Freiburg, Germany. He connects
+            European club energy with underground brazilian energy, building high-impact sets
+            for dance floors. 
           </p>
         </div>
-        <div class="panel">
+<!--         <div class="panel">
           <h3>Signature Sound</h3>
           <p>
             Expect a blend of Brazilian Funk, Bass House, Hardgroove, Forró, and Techno. The vibe is
@@ -614,7 +625,7 @@
             Freiburg, Germany. Available for club nights, cultural events, and private bookings
             across Germany and neighboring EU cities.
           </p>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -743,6 +754,50 @@
         },
         { passive: true }
       );
+    })();
+  </script>
+  <script>
+    (function () {
+      const chips = Array.from(document.querySelectorAll(".chip[data-audio]"));
+      if (!chips.length) return;
+
+      const players = new Map();
+
+      function stopOthers(activeChip) {
+        chips.forEach((chip) => {
+          if (chip !== activeChip) {
+            const audio = players.get(chip);
+            if (audio) {
+              audio.pause();
+              audio.currentTime = 0;
+            }
+            chip.setAttribute("aria-pressed", "false");
+          }
+        });
+      }
+
+      chips.forEach((chip) => {
+        const src = chip.dataset.audio;
+        const audio = new Audio(src);
+        audio.preload = "none";
+        players.set(chip, audio);
+
+        chip.addEventListener("click", () => {
+          if (audio.paused) {
+            stopOthers(chip);
+            audio.play().catch(() => {});
+            chip.setAttribute("aria-pressed", "true");
+          } else {
+            audio.pause();
+            audio.currentTime = 0;
+            chip.setAttribute("aria-pressed", "false");
+          }
+        });
+
+        audio.addEventListener("ended", () => {
+          chip.setAttribute("aria-pressed", "false");
+        });
+      });
     })();
   </script>
 </body>
