@@ -1,11 +1,749 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>b.god</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>b.god | Brazilian DJ</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+    :root {
+      color-scheme: dark;
+      --bg: #0b0b0d;
+      --bg-alt: #11141a;
+      --text: #f4f5f7;
+      --muted: #a8b0bf;
+      --accent: #3fd1a7;
+      --accent-2: #5aa2ff;
+      --card: rgba(18, 22, 30, 0.65);
+      --stroke: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --font-display: "Audiowide", sans-serif;
+      --font-body: "Audiowide", sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      /* Agora o fundo principal vem da camada .parallax-bg */
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ========= PARALLAX BACKGROUND LAYER ========= */
+    .parallax-bg {
+      position: fixed;
+      inset: -10vh -10vw; /* sobra pra não aparecer borda quando mover */
+      z-index: -2;
+      pointer-events: none;
+
+      /* TROQUE a imagem (bg.jpg) pelo seu arquivo/caminho no repo */
+      background:
+        radial-gradient(circle at 30% 10%, rgba(63, 209, 167, 0.14), transparent 50%),
+        radial-gradient(circle at 80% 40%, rgba(90, 162, 255, 0.14), transparent 55%),
+        url("images/backretrato.png");
+
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+      opacity: 0.55;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+
+    .parallax-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.85));
+    }
+
+    /* ========= PAGE LAYOUT ========= */
+    .page {
+      position: relative;
+      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 6vw 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      gap: 28px;
+    }
+
+    .nav .logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero {
+      min-height: 90vh;
+      padding: 24px 6vw 60px;
+      display: grid;
+      gap: 40px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .hero-card {
+      background: rgba(12, 16, 22, 0.15);
+      border: none;
+      border-radius: 0;
+      padding: clamp(32px, 5vw, 64px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      top: 0;
+    }
+
+    .hero-card::after {
+      bottom: 0;
+    }
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 12px;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 8vw, 120px);
+      margin: 0 0 1px;
+      letter-spacing: 0.05em;
+    }
+
+    .tagline {
+      font-size: clamp(26px, 3vw, 32px);
+      margin: 0 0 24px;
+      max-width: 560px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+      justify-content: center;
+    }
+
+    .chip {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--stroke);
+      background: transparent;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 6px;
+      border: 1px solid var(--stroke);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: rgba(63, 209, 167, 0.12);
+      color: var(--text);
+      border-color: rgba(63, 209, 167, 0.4);
+      box-shadow: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(63, 209, 167, 0.7);
+    }
+
+    .btn-ghost {
+      border-color: var(--stroke);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.24);
+      transform: translateY(-1px);
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+    }
+
+    .social-row a {
+      border: 1px solid var(--stroke);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .social-row a:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .social-row svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 0 4vw;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 40px);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      justify-items: center;
+    }
+
+    .panel {
+      background: rgba(12, 16, 22, 0.15);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      font-family: var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .events-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      justify-items: stretch;
+      width: min(100%, 980px);
+      max-width: 100%;
+    }
+
+    .event-card {
+      width: 100%;
+      max-width: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-self: start;
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      padding: 12px;
+      background: rgba(9, 12, 18, 0.15);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      text-align: center;
+      min-width: 0;
+      word-break: break-word;
+    }
+
+    .event-card--featured {
+      max-width: 980px;
+      padding: 20px;
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .event-link {
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .event-link:focus-visible {
+      outline: 2px solid rgba(63, 209, 167, 0.6);
+      outline-offset: 4px;
+    }
+
+    .event-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .event-line {
+      margin: 0;
+    }
+
+    .event-date {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+    .event-title {
+      font-size: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .event-style {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .event-card--featured {
+        max-width: 520px;
+      }
+    }
+
+    .media-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      justify-items: center;
+    }
+
+    .media-embed {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      background: #000;
+      aspect-ratio: 16 / 9;
+      box-shadow: var(--shadow);
+    }
+
+    .media-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .media-links {
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+    }
+
+    .link-card {
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    .booking {
+      padding-bottom: 80px;
+    }
+
+    .booking .panel {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .booking .btn-primary {
+      justify-content: center;
+    }
+
+    footer {
+      padding: 24px 6vw 48px;
+      color: var(--muted);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid var(--stroke);
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+
+    @media (max-width: 720px) {
+      .nav {
+        gap: 16px;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>B.GoD online</h1>
-  <p>bgod-creaction.com</p>
+  <!-- Parallax background layer -->
+  <div class="parallax-bg" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="hero" id="top">
+      <nav class="nav">
+        <div class="logo">DJ | Freiburg</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#events">Events</a>
+          <a href="#media">Media</a>
+          <a href="#booking">Booking</a>
+        </div>
+      </nav>
+
+      <div class="hero-card">
+        <p class="eyebrow">Brazilian flavor in the German dancefloors</p>
+        <h1>b.god</h1>
+<!--         <p class="tagline">creative reaction</p> -->
+
+        <div class="chips">
+          <div class="chip">Forró</div>            
+          <div class="chip">Brazilian Funk</div>
+          <div class="chip">Bass House</div>
+          <div class="chip">Hardgroove</div>
+          <div class="chip">Techno</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#booking">Book Now</a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://www.youtube.com/@bgod-creaction" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.8 15.5v-7l6.1 3.5-6.1 3.5Z"/>
+            </svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.instagram.com/b.god_c.reaction?igsh=MTE5amp1ZXRrZ3FhaA==" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm-5 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm5-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://on.soundcloud.com/KmQS8WiVnFPnqRLMZa" aria-label="SoundCloud" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 14.5c-.4 0-.8.2-1.1.4A3.2 3.2 0 0 0 6 21h12.3a3.7 3.7 0 0 0 .5-7.4A5.5 5.5 0 0 0 8.2 11c-.3 0-.6 0-.9.1l.2 3.4c0 .9-.7 1.7-1.5 1.7ZM9 9.3a7 7 0 0 1 4.9-2.1 6.7 6.7 0 0 1 6.6 6.6c1.9.4 3.5 2.1 3.5 4.4A4.8 4.8 0 0 1 19.2 23H8.7c-2.1 0-3.9-1.6-4.2-3.7H6a1.5 1.5 0 0 0 1.5-1.6L7.1 8a7.6 7.6 0 0 1 1.9 1.3Z"/>
+            </svg>
+            <span>SoundCloud</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    
+    <section class="section" id="events">
+      <div class="section-title">Upcoming Events</div>
+      <div class="events-grid">
+        <div class="event-card">
+          <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Matinee de Carnaval event page">
+            <div class="event-line event-date">February 14, 2026</div>
+            <div class="event-line event-title">Matinee de Carnaval<br>Freiburg</div>
+            <div class="event-line event-style">Forr&oacute; set</div>
+          </a>
+        </div>
+        <div class="event-card">
+          <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="KTS event page">
+            <div class="event-line event-date">February 28, 2026</div>
+            <div class="event-line event-title">KTS<br>Freiburg</div>
+            <div class="event-line event-style">Bass House &amp; Hardgroove</div>
+          </a>
+        </div>
+        <div class="event-card">
+          <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Rueffeto event page">
+            <div class="event-line event-date">March 28, 2026</div>
+            <div class="event-line event-title">Rueffeto<br>Freiburg</div>
+            <div class="event-line event-style">Brazilian Funk Bass</div>
+          </a>
+        </div>
+        <div class="event-card">
+          <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Agua da Fonte 2026 event page">
+            <div class="event-line event-date">September 26, 2026</div>
+            <div class="event-line event-title">&Aacute;gua da Fonte 2026<br>Freiburg</div>
+            <div class="event-line event-style">Forr&oacute; set</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="about">
+      <div class="section-title">About</div>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>Identity</h3>
+          <p>
+            b.god is a Brazilian-born DJ and producer based in Freiburg, Germany. He connects
+            Brazilian club energy with underground European soundscapes, building high-impact sets
+            for dance floors that want heat and precision.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Signature Sound</h3>
+          <p>
+            Expect a blend of Brazilian Funk, Bass House, Hardgroove, Forró, and Techno. The vibe is
+            raw, fast, and rhythmic, made for late nights, peak sets, and unforgettable drop moments.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Based In</h3>
+          <p>
+            Freiburg, Germany. Available for club nights, cultural events, and private bookings
+            across Germany and neighboring EU cities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    
+
+    
+
+    <section class="section" id="media">
+      <div class="section-title">Listen &amp; Watch</div>
+      <div class="media-grid">
+        <!-- FIX: YouTube needs the /embed/ URL -->
+        <div class="media-embed" aria-label="YouTube video">
+          <iframe
+            src="https://www.youtube.com/embed/3f4p9ohpkno"
+            title="b.god - Live Set"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <!-- NOTE: SoundCloud embeds usually require their player URL.
+             If your current link doesn't render, use the standard SoundCloud embed code. -->
+        <div class="media-embed" aria-label="SoundCloud player">
+          <iframe
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lucas-da-silva-650085683/d3d4-soliparty-at-kts-dj-it410-b2b-bgod&color=%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+            title="b.god on SoundCloud"
+            allow="autoplay"
+          ></iframe>
+        </div>
+
+        <div class="panel media-links">
+          <div class="link-card">
+            <div>
+              <strong>YouTube</strong>
+              <div class="muted">Live sets, edits, and highlights.</div>
+            </div>
+            <a class="btn btn-ghost" href="https://www.youtube.com/@bgod-creaction">Open</a>
+          </div>
+          <div class="link-card">
+            <div>
+              <strong>Instagram</strong>
+              <div class="muted">Clips, flyers, and night energy.</div>
+            </div>
+            <a class="btn btn-ghost" href="https://www.instagram.com/b.god_c.reaction?igsh=MTE5amp1ZXRrZ3FhaA==">Follow</a>
+          </div>
+          <div class="link-card">
+            <div>
+              <strong>SoundCloud</strong>
+              <div class="muted">Mixes and unreleased edits.</div>
+            </div>
+            <a class="btn btn-ghost" href="https://on.soundcloud.com/KmQS8WiVnFPnqRLMZa">Listen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section booking" id="booking">
+      <div class="section-title">Booking</div>
+      <div class="panel">
+        <div>
+          <h3>Book DJ b.god</h3>
+          <p>
+            Ready to bring Brazilian funk and underground energy to your night? Share your date,
+            venue, and vibe. I will respond quickly with availability and details.
+          </p>
+          <p>
+            Email: <a href="mailto:bgod.creaction@gmail.com">bgod.creaction@gmail.com</a><br />
+            Based in Freiburg, Germany
+          </p>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="mailto:bgod.creaction@gmail.com">Book Now</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div>© 2026 b.god c.reaction. All rights reserved.</div>
+    <div><a href="#top">Back to top</a></div>
+  </footer>
+
+  <!-- Parallax + (optional) mouse interaction -->
+  <script>
+    (function () {
+      const bg = document.querySelector(".parallax-bg");
+      if (!bg) return;
+
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) return;
+
+      let current = 0;
+      let target = 0;
+
+      // suavidade (0.10-0.20). Quanto menor, mais "atrasado"/cinemático.
+      const ease = 0.15;
+
+      // velocidade do parallax (0.15-0.35). Quanto menor, mais lento o fundo.
+      const parallaxFactor = 0.25;
+
+      function onScroll() {
+        target = window.scrollY || 0;
+      }
+
+      function raf() {
+        current += (target - current) * ease;
+
+        const y = -current * parallaxFactor;
+        bg.style.transform = `translate3d(0, ${y}px, 0)`;
+
+        requestAnimationFrame(raf);
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      raf();
+
+      // Mouse-based background drift (desktop only)
+      window.addEventListener(
+        "mousemove",
+        (e) => {
+          const x = e.clientX / window.innerWidth - 0.5;
+          const y = e.clientY / window.innerHeight - 0.5;
+          bg.style.backgroundPosition = `${50 + x * 2}% ${50 + y * 2}%`;
+        },
+        { passive: true }
+      );
+    })();
+  </script>
 </body>
 </html>
