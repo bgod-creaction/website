@@ -6,8 +6,6 @@
   <title>b.god | Brazilian DJ</title>
 
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
-
     :root {
       color-scheme: dark;
       --bg: #0b0b0d;
@@ -20,8 +18,8 @@
       --stroke: rgba(255, 255, 255, 0.08);
       --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
       --radius: 18px;
-      --font-display: "Audiowide", sans-serif;
-      --font-body: "Audiowide", sans-serif;
+      --font-display: "MK Zodnig Square", "MKZodnigSquare", "MK Zodnig Square Regular", sans-serif;
+      --font-body: "OCR A Extended", "OCR-A", "OCRA", monospace;
     }
 
     *,
@@ -37,6 +35,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      font-size: 100%;
       text-align: center;
     }
 
@@ -166,6 +165,12 @@
       font-size: clamp(60px, 8vw, 120px);
       margin: 0 0 1px;
       letter-spacing: 0.05em;
+
+      font-weight: 400;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+      font-smooth: never;
     }
 
     .tagline {
@@ -178,6 +183,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 18px;
       margin-bottom: 28px;
       justify-content: center;
     }
@@ -194,11 +200,56 @@
       font-family: inherit;
       cursor: pointer;
       appearance: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .chip:focus-visible {
       outline: 2px solid rgba(63, 209, 167, 0.6);
       outline-offset: 3px;
+    }
+
+    .chip[data-audios] {
+      border-color: rgba(63, 209, 167, 0.55);
+      background: rgba(63, 209, 167, 0.08);
+      padding-left: 30px;
+      padding-right: 30px;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(63, 209, 167, 0.12);
+    }
+
+    .chip[data-audios]::before {
+      content: ">";
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      opacity: 0.8;
+    }
+
+    .chip[data-audios][aria-pressed="true"]::before {
+      content: "||";
+    }
+
+    .chip[data-audios]::after {
+      content: ">|";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .chip[data-audios][aria-pressed="true"]::after {
+      opacity: 0.9;
+    }
+
+    .chip[data-audios]:hover {
+      transform: translateY(-2px);
+      border-color: rgba(63, 209, 167, 0.85);
+      box-shadow: 0 12px 26px rgba(63, 209, 167, 0.2);
     }
 
     .cta-row {
@@ -211,12 +262,12 @@
 
     .btn {
       padding: 12px 22px;
-      border-radius: 6px;
+      border-radius: 0.6px;
       border: 1px solid var(--stroke);
-      font-weight: 600;
+      font-weight: 10;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
-      display: inline-flex;
+      /* text-transform: uppercase; */
+      /* display: inline-flex; */
       align-items: center;
       gap: 10px;
       background: transparent;
@@ -531,11 +582,11 @@
 <!--         <p class="tagline">creative reaction</p> -->
 
         <div class="chips">
-          <div class="chip">Forró</div>            
-          <div class="chip">Brazilian Funk</div>
-          <button class="chip" type="button" data-audio="audios/input30.mp3" aria-pressed="false">Bass House</button>
-          <div class="chip">Hardgroove</div>
-          <div class="chip">Techno</div>
+          <button class="chip" type="button" data-audios="audios/forro1.mp3,audios/forro2.mp3,audios/forro3.mp3,audios/forro4.mp3" aria-pressed="false">Forr&oacute;</button>
+          <button class="chip" type="button" data-audios="audios/funk1.mp3,audios/funk2.mp3,audios/funk3.mp3,audios/funk4.mp3" aria-pressed="false">Brazilian Funk</button>
+          <button class="chip" type="button" data-audios="audios/basshouse1.mp3,audios/basshouse2.mp3,audios/basshouse3.mp3" aria-pressed="false">Bass House</button>
+          <button class="chip" type="button" data-audios="audios/hardgroove1.mp3,audios/hardgroove2.mp3,audios/hardgroove3.mp3" aria-pressed="false">Hardgroove</button>
+          <button class="chip" type="button" data-audios="audios/techno1.mp3,audios/techno2.mp3,audios/techno3.mp3" aria-pressed="false">Techno</button>
         </div>
 
         <div class="cta-row">
@@ -758,7 +809,7 @@
   </script>
   <script>
     (function () {
-      const chips = Array.from(document.querySelectorAll(".chip[data-audio]"));
+      const chips = Array.from(document.querySelectorAll(".chip[data-audios]"));
       if (!chips.length) return;
 
       const players = new Map();
@@ -766,30 +817,55 @@
       function stopOthers(activeChip) {
         chips.forEach((chip) => {
           if (chip !== activeChip) {
-            const audio = players.get(chip);
-            if (audio) {
-              audio.pause();
-              audio.currentTime = 0;
+            const state = players.get(chip);
+            if (state?.audio) {
+              state.audio.pause();
+              state.audio.currentTime = 0;
             }
             chip.setAttribute("aria-pressed", "false");
           }
         });
       }
 
-      chips.forEach((chip) => {
-        const src = chip.dataset.audio;
-        const audio = new Audio(src);
-        audio.preload = "none";
-        players.set(chip, audio);
+      function nextTrack(chip) {
+        const state = players.get(chip);
+        if (!state) return;
+        state.index = (state.index + 1) % state.sources.length;
+        state.audio.pause();
+        state.audio.currentTime = 0;
+        state.audio.src = state.sources[state.index];
+        state.audio.play().catch(() => {});
+        chip.setAttribute("aria-pressed", "true");
+      }
 
-        chip.addEventListener("click", () => {
-          if (audio.paused) {
+      chips.forEach((chip) => {
+        const sources = (chip.dataset.audios || "")
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean);
+        if (!sources.length) return;
+
+        let index = 0;
+        const audio = new Audio(sources[index]);
+        audio.preload = "none";
+        players.set(chip, { audio, sources, index });
+
+        chip.addEventListener("click", (event) => {
+          const state = players.get(chip);
+          if (!state) return;
+          const hitNext = event.offsetX >= chip.clientWidth - 28;
+          if (hitNext && !state.audio.paused) {
+            nextTrack(chip);
+            return;
+          }
+
+          if (state.audio.paused) {
             stopOthers(chip);
-            audio.play().catch(() => {});
+            state.audio.play().catch(() => {});
             chip.setAttribute("aria-pressed", "true");
           } else {
-            audio.pause();
-            audio.currentTime = 0;
+            state.audio.pause();
+            state.audio.currentTime = 0;
             chip.setAttribute("aria-pressed", "false");
           }
         });
