@@ -11,6 +11,16 @@
       src: url("fonts/mkzodsqu.ttf") format("truetype");
       font-display: swap;
     }
+    @font-face {
+      font-family: "8 Bit Party";
+      src: url("fonts/8_bit_party.ttf") format("truetype");
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "OCR A Extended";
+      src: url("fonts/OCRAEXT.TTF") format("truetype");
+      font-display: swap;
+    }
 
     :root {
       color-scheme: dark;
@@ -24,7 +34,7 @@
       --stroke: rgba(255, 255, 255, 0.08);
       --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
       --radius: 18px;
-      --font-display: "MK Zodnig Square", "MKZodnigSquare", "MK Zodnig Square Regular", sans-serif;
+      --font-display: "OCR A Extended", "OCR-A", "OCRA", monospace;
       --font-body: "OCR A Extended", "OCR-A", "OCRA", monospace;
     }
 
@@ -167,7 +177,7 @@
     }
 
     h1 {
-      font-family: var(--font-display);
+      font-family: "MK Zodnig Square", "MKZodnigSquare", "MK Zodnig Square Regular", sans-serif;
       font-size: clamp(60px, 8vw, 120px);
       margin: 0 0 1px;
       letter-spacing: 0.05em;
@@ -369,7 +379,7 @@
     }
 
     .section-title {
-      font-family: var(--font-display);
+      font-family: var(--font-body);
       font-size: clamp(26px, 4vw, 40px);
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -402,7 +412,8 @@
 
     .panel h3 {
       margin-top: 0;
-      font-family: var(--font-display);
+      font-family: var(--font-body);
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 18px;
@@ -561,7 +572,7 @@
     .media-grid {
       display: grid;
       gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
       justify-items: center;
     }
 
@@ -606,11 +617,11 @@
     }
 
     .booking .panel {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       align-items: center;
-      justify-items: center;
+      justify-content: center;
       text-align: center;
     }
 
@@ -666,17 +677,18 @@
   <div class="page">
     <header class="hero" id="top">
       <nav class="nav">
-        <div class="logo">DJ | Freiburg</div>
+        <!-- <div class="logo">DJ</div>
+        <div class="nav-links">Freiburg</div> -->
         <div class="nav-links">
-          <a href="#about">About</a>
           <a href="#events">Events</a>
+          <a href="#about">About</a>
           <a href="#media">Media</a>
           <a href="#booking">Booking</a>
         </div>
       </nav>
 
       <div class="hero-card">
-        <p class="eyebrow">Brazilian flavor in the German dancefloors</p>
+        <p class="eyebrow">Brazilian DJ based in Germany</p>
 
         <h1>b.god</h1>
 
@@ -691,7 +703,7 @@
         </div>
 
         <div class="cta-row">
-          <a class="btn btn-primary" href="#booking">Book Now</a>
+          <a class="btn btn-primary" href="#booking">Bookings &amp; Inquiries</a>
         </div>
 
         <div class="social-row">
@@ -766,10 +778,10 @@
 
 
     <section class="section" id="about">
-      <div class="section-title"></div>
+      <div class="section-title">About</div>
       <div class="about-grid">
         <div class="panel panel-about">
-          <h3>About</h3>
+          <h3></h3>
           <p>
             b.god is a Brazilian-born DJ and engineer based in Freiburg, Germany.
           </p>
@@ -791,18 +803,18 @@
               <a href="https://www.instagram.com/it410_?igsh=b3RqdW13b25uNnh6" target="_blank" rel="noopener noreferrer">it410</a>.
               Together, they form the artistic performance
               <a href="https://www.instagram.com/d3d4.intro?igsh=MXd3cjY4ZW00azd5ZQ==" target="_blank" rel="noopener noreferrer">D3D4</a>,
-              a project focused primarily on Brazilian Funk Bass. D3D4 is not only a DJ performance, but also the identity behind a
+              a project focused primarily on
+              Brazilian Funk Bass. <a href="https://www.instagram.com/d3d4.intro?igsh=MXd3cjY4ZW00azd5ZQ==" target="_blank" rel="noopener noreferrer">D3D4</a> is not only a DJ performance, but also the identity behind a
               party series organized by the duo, representing their sound, energy, and cultural vision.
             </p>
             <p>
-              it410, a Brazilian musician, capoeira Contramestre, and DJ, was the one who introduced
+              <a href="https://www.instagram.com/it410_?igsh=b3RqdW13b25uNnh6" target="_blank" rel="noopener noreferrer">it410</a>, a Brazilian musician, capoeira Contramestre, and DJ, was the one who introduced
               b.god to his first steps in DJing. Another strong influence in his journey is
-              <a href="https://www.instagram.com/maisumdj?igsh=MXA4NGtycm5lODJ1aQ==" target="_blank" rel="noopener noreferrer">MaisUmDJ</a>, a
-              close friend with whom b.god shares experiences, artistic growth, and the organization of
-              events.
+              <a href="https://www.instagram.com/maisumdj?igsh=MXA4NGtycm5lODJ1aQ==" target="_blank" rel="noopener noreferrer">MaisUmDJ</a>,
+              a friend with whom b.god shares experiences, artistic growth, and the organization of events.
             </p>
             <p>
-              b.god is also a member of the artistic collective MANDABUSKA, which aims to create space
+              b.god is also a member of the artistic collective <a href="https://www.instagram.com/mandabuska?igsh=ZWc0eDM5Nmk0ZnBu" target="_blank" rel="noopener noreferrer">MANDABUSKA</a>, which aims to create space
               for independent artists to produce, promote, and spread their art. Strongly connected to
               peripheral and immigrant communities, the collective actively supports and amplifies
               artistic expressions emerging from these realities.
@@ -837,13 +849,29 @@
     
 
     <section class="section" id="media">
-      <div class="section-title">Listen &amp; Watch</div>
+      <div class="section-title">DJ live sets</div>
       <div class="media-grid">
         <!-- FIX: YouTube needs the /embed/ URL -->
         <div class="media-embed" aria-label="YouTube video">
           <iframe
             src="https://www.youtube.com/embed/3f4p9ohpkno"
             title="b.god - Live Set"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="media-embed" aria-label="YouTube video">
+          <iframe
+            src="https://www.youtube.com/embed/tiivlWv56Zw"
+            title="b.god - Live Set 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="media-embed" aria-label="YouTube video">
+          <iframe
+            src="https://www.youtube.com/embed/rcoNtIbxKxs"
+            title="b.god - Live Set 3"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
@@ -886,21 +914,19 @@
     </section>
 
     <section class="section booking" id="booking">
-      <div class="section-title">Booking</div>
+      <div class="section-title">Bookings &amp; Inquiries</div>
       <div class="panel">
         <div>
-          <h3>Book DJ b.god</h3>
+          <!-- <h3>Bookings &amp; Inquiries</h3> -->
           <p>
-            Ready to bring Brazilian funk and underground energy to your night? Share your date,
-            venue, and vibe. I will respond quickly with availability and details.
+            Bring Brazilian energy to your dancefloor — from clubs and bars to private parties and open-air events.
           </p>
           <p>
-            Email: <a href="mailto:bgod.creaction@gmail.com">bgod.creaction@gmail.com</a><br />
-            Based in Freiburg, Germany
+            Get in touch to check availability and discuss the musical styles that best fit your event.
           </p>
         </div>
         <div>
-          <a class="btn btn-primary" href="mailto:bgod.creaction@gmail.com">Book Now</a>
+          <a class="btn btn-primary" href="mailto:bgod.creaction@gmail.com">Bookings &amp; Inquiries</a>
         </div>
       </div>
     </section>
