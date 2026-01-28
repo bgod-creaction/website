@@ -408,6 +408,61 @@
       font-size: 18px;
     }
 
+    .panel a {
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .about-more {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-more summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 8px 14px;
+      border: 1px solid var(--stroke);
+      border-radius: 8px;
+      display: inline-block;
+      margin: 4px auto 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .about-more summary:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .about-more summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .about-more[open] summary {
+      color: var(--text);
+      border-color: rgba(63, 209, 167, 0.5);
+      align-self: center;
+      margin-top: 16px;
+      order: 2;
+    }
+
+    .about-more[open] summary .about-more-label {
+      display: none;
+    }
+
+    .about-more[open] summary::after {
+      content: "Hide";
+    }
+
     .events-grid {
       display: grid;
       gap: 8px;
@@ -723,15 +778,42 @@
             two worlds collide. His sets move through Brazilian Funk, Bass House, Hardgroove, and
             Techno, blending raw groove with club-driven energy.
           </p>
-          <p>
-            Beyond electronic music, Forr&oacute; also plays a special role in his artistic identity.
-            Built around accordion, triangle, and zabumba, this traditional Brazilian partner dance
-            has gained strong popularity across Europe in the last decade. Whether dancing or
-            mixing, b.god carries this rhythm with authenticity and passion.
-          </p>
-          <p>
-            Keep your dance floor moving. Get in touch and check availability.
-          </p>
+          <details class="about-more">
+            <summary><span class="about-more-label">Read more</span></summary>
+            <p>
+              Beyond electronic music, Forr&oacute; also plays a special role in his artistic identity.
+              Built around accordion, triangle, and zabumba, this traditional Brazilian partner dance
+              has gained strong popularity across Europe in the last decade. Whether dancing or
+              mixing, b.god carries this rhythm with authenticity and passion.
+            </p>
+            <p>
+              Most of the time, b.god performs alongside his close friend and fellow DJ
+              <a href="https://www.instagram.com/it410_?igsh=b3RqdW13b25uNnh6" target="_blank" rel="noopener noreferrer">it410</a>.
+              Together, they form the artistic performance
+              <a href="https://www.instagram.com/d3d4.intro?igsh=MXd3cjY4ZW00azd5ZQ==" target="_blank" rel="noopener noreferrer">D3D4</a>,
+              a project focused primarily on Brazilian Funk Bass. D3D4 is not only a DJ performance, but also the identity behind a
+              party series organized by the duo, representing their sound, energy, and cultural vision.
+            </p>
+            <p>
+              it410, a Brazilian musician, capoeira Contramestre, and DJ, was the one who introduced
+              b.god to his first steps in DJing. Another strong influence in his journey is
+              <a href="https://www.instagram.com/maisumdj?igsh=MXA4NGtycm5lODJ1aQ==" target="_blank" rel="noopener noreferrer">MaisUmDJ</a>, a
+              close friend with whom b.god shares experiences, artistic growth, and the organization of
+              events.
+            </p>
+            <p>
+              b.god is also a member of the artistic collective MANDABUSKA, which aims to create space
+              for independent artists to produce, promote, and spread their art. Strongly connected to
+              peripheral and immigrant communities, the collective actively supports and amplifies
+              artistic expressions emerging from these realities.
+            </p>
+            <p>
+              Keep your dance floor moving.
+            </p>
+            <p>
+              Get in touch and check availability.
+            </p>
+          </details>
         </div>
 <!--         <div class="panel">
           <h3>Signature Sound</h3>
