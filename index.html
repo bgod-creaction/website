@@ -225,21 +225,6 @@
       gap: 8px;
     }
 
-    .chip-speaker {
-      display: inline-block;
-      font-size: 12px;
-      line-height: 1;
-      opacity: 0.9;
-      transform-origin: center;
-      animation: speakerPulse 1.4s ease-in-out infinite;
-    }
-
-    @keyframes speakerPulse {
-      0% { transform: scale(0.9); opacity: 0.7; }
-      50% { transform: scale(1.15); opacity: 1; }
-      100% { transform: scale(0.9); opacity: 0.7; }
-    }
-
     .chip:focus-visible {
       outline: 2px solid rgba(63, 209, 167, 0.6);
       outline-offset: 3px;
@@ -255,28 +240,35 @@
     }
 
     .chip[data-audios]::before {
-      content: ">";
+      content: "▶";
       position: absolute;
       left: 10px;
       top: 50%;
       transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      text-align: center;
       font-size: 10px;
-      opacity: 0.8;
+      opacity: 0.85;
+      border: 1px solid rgba(63, 209, 167, 0.55);
+      border-radius: 999px;
+      background: rgba(63, 209, 167, 0.08);
     }
 
     .chip[data-audios][aria-pressed="true"]::before {
-      content: "||";
+      content: "❚❚";
     }
 
     .chip[data-audios]::after {
-      content: ">|";
+      content: "»";
       position: absolute;
       right: 10px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 10px;
+      font-size: 12px;
       opacity: 0;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .chip[data-audios][aria-pressed="true"]::after {
@@ -287,6 +279,11 @@
       transform: translateY(-2px);
       border-color: rgba(63, 209, 167, 0.85);
       box-shadow: 0 12px 26px rgba(63, 209, 167, 0.2);
+    }
+
+    .chip[data-audios]:hover::after {
+      opacity: 0.6;
+      transform: translateY(-50%) translateX(1px);
     }
 
     .cta-row {
@@ -510,7 +507,7 @@
       color: inherit;
       text-decoration: none;
       display: grid;
-      grid-template-columns: 1fr 1.8fr 1fr;
+      grid-template-columns: 0.5fr 2fr 1.3fr;
       gap: 6px;
       align-items: center;
       text-align: left;
@@ -704,11 +701,11 @@
 <!--         <p class="tagline">creative reaction</p> -->
 
         <div class="chips">
-          <button class="chip" type="button" data-audios="audios/forro1.mp3,audios/forro2.mp3,audios/forro3.mp3,audios/forro4.mp3" aria-pressed="false"><span class="chip-label">Forr&oacute;<span class="chip-speaker" aria-hidden="true">🔊</span></span></button>
-          <button class="chip" type="button" data-audios="audios/funk1.mp3,audios/funk2.mp3,audios/funk3.mp3,audios/funk4.mp3" aria-pressed="false"><span class="chip-label">Brazilian Funk<span class="chip-speaker" aria-hidden="true">🔊</span></span></button>
-          <button class="chip" type="button" data-audios="audios/basshouse1.mp3,audios/basshouse2.mp3,audios/basshouse3.mp3" aria-pressed="false"><span class="chip-label">Bass House<span class="chip-speaker" aria-hidden="true">🔊</span></span></button>
-          <button class="chip" type="button" data-audios="audios/hardgroove1.mp3,audios/hardgroove2.mp3,audios/hardgroove3.mp3" aria-pressed="false"><span class="chip-label">Hardgroove<span class="chip-speaker" aria-hidden="true">🔊</span></span></button>
-          <button class="chip" type="button" data-audios="audios/techno1.mp3,audios/techno2.mp3,audios/techno3.mp3" aria-pressed="false"><span class="chip-label">Techno<span class="chip-speaker" aria-hidden="true">🔊</span></span></button>
+          <button class="chip" type="button" data-audios="audios/forro1.mp3,audios/forro2.mp3,audios/forro3.mp3,audios/forro4.mp3" aria-pressed="false"><span class="chip-label">Forr&oacute;</span></button>
+          <button class="chip" type="button" data-audios="audios/funk1.mp3,audios/funk2.mp3,audios/funk3.mp3,audios/funk4.mp3" aria-pressed="false"><span class="chip-label">Brazilian Funk</span></button>
+          <button class="chip" type="button" data-audios="audios/basshouse1.mp3,audios/basshouse2.mp3,audios/basshouse3.mp3" aria-pressed="false"><span class="chip-label">Bass House</span></button>
+          <button class="chip" type="button" data-audios="audios/hardgroove1.mp3,audios/hardgroove2.mp3,audios/hardgroove3.mp3" aria-pressed="false"><span class="chip-label">Hardgroove</span></button>
+          <button class="chip" type="button" data-audios="audios/techno1.mp3,audios/techno2.mp3,audios/techno3.mp3" aria-pressed="false"><span class="chip-label">Techno</span></button>
         </div>
 
         <div class="cta-row">
@@ -744,36 +741,36 @@
       <div class="events-grid">
         <div class="event-card">
           <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Matinee de Carnaval event page">
-            <div class="event-line event-date">February 14</div>
-            <div class="event-line event-title">Matinee de Carnaval — Freiburg</div>
+            <div class="event-line event-date">14.Feb</div>
+            <div class="event-line event-title">Matinee de Carnaval (Freiburg)</div>
             <div class="event-line event-style">Forr&oacute;</div>
           </a>
         </div>
         <div class="event-card">
           <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Carnaval Mamita event page">
-            <div class="event-line event-date">February 14</div>
-            <div class="event-line event-title">Carnaval Mamita — Freiburg</div>
+            <div class="event-line event-date">14.Feb</div>
+            <div class="event-line event-title">Carnaval Mamita (Freiburg)</div>
             <div class="event-line event-style">Ax&eacute;, Samba-reggae, Funk</div>
           </a>
         </div>
         <div class="event-card">
           <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="KTS event page">
-            <div class="event-line event-date">February 28</div>
-            <div class="event-line event-title">KTS — Freiburg</div>
+            <div class="event-line event-date">28.Feb</div>
+            <div class="event-line event-title">KTS (Freiburg)</div>
             <div class="event-line event-style">Bass House &amp; Hardgroove</div>
           </a>
         </div>
         <div class="event-card">
           <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Rueffeto event page">
-            <div class="event-line event-date">March 28</div>
-            <div class="event-line event-title">Rueffeto — Freiburg</div>
+            <div class="event-line event-date">28.Mar</div>
+            <div class="event-line event-title">D3D4 ALL BLACK Rueffeto (Freiburg)</div>
             <div class="event-line event-style">Brazilian Funk Bass</div>
           </a>
         </div>
         <div class="event-card">
           <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Agua da Fonte 2026 event page">
-            <div class="event-line event-date">September 26</div>
-            <div class="event-line event-title">&Aacute;gua da Fonte 2026 — Freiburg</div>
+            <div class="event-line event-date">26.Sep</div>
+            <div class="event-line event-title">&Aacute;gua da Fonte 2026 (Freiburg)</div>
             <div class="event-line event-style">Forr&oacute;</div>
           </a>
         </div>
