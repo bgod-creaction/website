@@ -135,6 +135,7 @@
       gap: 40px;
       align-items: center;
       justify-items: center;
+      position: relative;
     }
 
     .hero-card {
@@ -178,7 +179,7 @@
 
     h1 {
       font-family: "MK Zodnig Square", "MKZodnigSquare", "MK Zodnig Square Regular", sans-serif;
-      font-size: clamp(60px, 8vw, 120px);
+      font-size: clamp(84px, 12vw, 180px);
       margin: 0 0 1px;
       letter-spacing: 0.05em;
 
@@ -196,12 +197,23 @@
     }
 
     .chips {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 18px;
       margin-bottom: 28px;
       justify-content: center;
+    }
+
+    .hero-hint-image {
+      position: absolute;
+      width: 70px;
+      height: auto;
+      left: 0;
+      top: 0;
+      z-index: 4;
+      pointer-events: none;
     }
 
     .chip {
@@ -233,31 +245,11 @@
     .chip[data-audios] {
       border-color: rgba(63, 209, 167, 0.55);
       background: rgba(63, 209, 167, 0.08);
-      padding-left: 30px;
+      padding-left: 16px;
       padding-right: 30px;
       position: relative;
       box-shadow: 0 8px 20px rgba(63, 209, 167, 0.12);
-    }
-
-    .chip[data-audios]::before {
-      content: "▶";
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      line-height: 16px;
-      text-align: center;
-      font-size: 10px;
-      opacity: 0.85;
-      border: 1px solid rgba(63, 209, 167, 0.55);
-      border-radius: 999px;
-      background: rgba(63, 209, 167, 0.08);
-    }
-
-    .chip[data-audios][aria-pressed="true"]::before {
-      content: "❚❚";
+      animation: chipPulse 1.4s ease-in-out infinite;
     }
 
     .chip[data-audios]::after {
@@ -284,6 +276,18 @@
     .chip[data-audios]:hover::after {
       opacity: 0.6;
       transform: translateY(-50%) translateX(1px);
+    }
+
+    @keyframes chipPulse {
+      0% {
+        box-shadow: 0 8px 20px rgba(63, 209, 167, 0.12);
+      }
+      50% {
+        box-shadow: 0 14px 30px rgba(63, 209, 167, 0.32);
+      }
+      100% {
+        box-shadow: 0 8px 20px rgba(63, 209, 167, 0.12);
+      }
     }
 
     .cta-row {
@@ -320,6 +324,14 @@
       border-color: rgba(63, 209, 167, 0.7);
     }
 
+    .hero-cta {
+      display: inline-flex;
+      padding: 9px 16px;
+      font-size: 12px;
+      width: fit-content;
+      align-self: center;
+    }
+
     .btn-ghost {
       border-color: var(--stroke);
       background: transparent;
@@ -347,7 +359,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 8px 12px;
+      padding: 6px 10px;
+      font-size: 12px;
       background: rgba(255, 255, 255, 0.04);
       transition: border-color 0.2s ease, transform 0.2s ease;
     }
@@ -358,8 +371,8 @@
     }
 
     .social-row svg {
-      width: 18px;
-      height: 18px;
+      width: 15px;
+      height: 15px;
       fill: currentColor;
     }
 
@@ -510,7 +523,6 @@
       grid-template-columns: 0.7fr 1.8fr 1.3fr;
       gap: 6px;
       align-items: center;
-      text-align: left;
       min-width: 0;
     }
 
@@ -542,16 +554,19 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent);
+      text-align: left;
     }
     .event-title {
       font-size: 13px;
       letter-spacing: 0.02em;
+      text-align: center;
     }
 
 
     .event-style {
       font-size: 12px;
       color: var(--muted);
+      text-align: right;
     }
 
     @media (max-width: 900px) {
@@ -568,6 +583,12 @@
 
       .event-line {
         white-space: normal;
+      }
+
+      .event-date,
+      .event-title,
+      .event-style {
+        text-align: center;
       }
 
       .media-grid {
@@ -701,7 +722,7 @@
 <!--         <p class="tagline">creative reaction</p> -->
 
         <div class="chips">
-          <button class="chip" type="button" data-audios="audios/forro1.mp3,audios/forro2.mp3,audios/forro3.mp3,audios/forro4.mp3" aria-pressed="false"><span class="chip-label">Forr&oacute;</span></button>
+          <button class="chip chip-forro" type="button" data-audios="audios/forro1.mp3,audios/forro2.mp3,audios/forro3.mp3,audios/forro4.mp3" aria-pressed="false"><span class="chip-label">Forr&oacute;</span></button>
           <button class="chip" type="button" data-audios="audios/funk1.mp3,audios/funk2.mp3,audios/funk3.mp3,audios/funk4.mp3" aria-pressed="false"><span class="chip-label">Brazilian Funk</span></button>
           <button class="chip" type="button" data-audios="audios/basshouse1.mp3,audios/basshouse2.mp3,audios/basshouse3.mp3" aria-pressed="false"><span class="chip-label">Bass House</span></button>
           <button class="chip" type="button" data-audios="audios/hardgroove1.mp3,audios/hardgroove2.mp3,audios/hardgroove3.mp3" aria-pressed="false"><span class="chip-label">Hardgroove</span></button>
@@ -709,7 +730,7 @@
         </div>
 
         <div class="cta-row">
-          <a class="btn btn-primary" href="#booking">Bookings &amp; Inquiries</a>
+          <a class="btn btn-primary hero-cta" href="#booking">Bookings &amp; Inquiries</a>
         </div>
 
         <div class="social-row">
@@ -733,6 +754,7 @@
           </a>
         </div>
       </div>
+      <img class="hero-hint-image" src="images/hints.png" alt="" aria-hidden="true" />
     </header>
 
     
@@ -1053,6 +1075,32 @@
           chip.setAttribute("aria-pressed", "false");
         });
       });
+
+      const hintImage = document.querySelector(".hero-hint-image");
+      const forroChip = document.querySelector(".chip-forro");
+      const hero = document.querySelector(".hero");
+
+      function positionHintImage() {
+        if (!hintImage || !forroChip || !hero) return;
+        const heroRect = hero.getBoundingClientRect();
+        const chipRect = forroChip.getBoundingClientRect();
+        const hintHeight = hintImage.offsetHeight || 0;
+
+        // Keep hint right edge anchored to Forro chip left edge.
+        const hintWidth = hintImage.offsetWidth || 0;
+        hintImage.style.left = `${chipRect.left - heroRect.left - hintWidth - 6}px`;
+        hintImage.style.top = `${chipRect.top - heroRect.top + chipRect.height / 2 - hintHeight / 2}px`;
+      }
+
+      if (hintImage) {
+        if (hintImage.complete) {
+          positionHintImage();
+        } else {
+          hintImage.addEventListener("load", positionHintImage, { once: true });
+        }
+      }
+      window.addEventListener("resize", positionHintImage);
+      positionHintImage();
     })();
   </script>
 </body>
