@@ -303,6 +303,7 @@
       border-radius: 0.6px;
       border: 1px solid var(--stroke);
       font-weight: 10;
+      font-family: inherit;
       letter-spacing: 0.04em;
       /* text-transform: uppercase; */
       /* display: inline-flex; */
@@ -359,8 +360,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 6px 10px;
-      font-size: 12px;
+      padding: 4px 8px;
+      font-size: 10px;
       background: rgba(255, 255, 255, 0.04);
       transition: border-color 0.2s ease, transform 0.2s ease;
     }
@@ -371,8 +372,8 @@
     }
 
     .social-row svg {
-      width: 15px;
-      height: 15px;
+      width: 13px;
+      height: 13px;
       fill: currentColor;
     }
 
@@ -624,6 +625,52 @@
       justify-items: center;
     }
 
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+      padding: 20px;
+    }
+
+    .modal-overlay.is-open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(92vw, 560px);
+      background: rgba(12, 16, 22, 0.96);
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .modal-card img {
+      width: 70%;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      border: 1px solid var(--stroke);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .modal-actions .btn {
+      padding: 8px 12px;
+      font-size: 11px;
+    }
+
     .link-card {
       border-radius: 16px;
       border: 1px solid var(--stroke);
@@ -762,7 +809,7 @@
       <div class="section-title">Upcoming Gigs</div>
       <div class="events-grid">
         <div class="event-card">
-          <a class="event-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Matinee de Carnaval event page">
+          <a class="event-link" href="#" data-open-matinee="true" aria-label="Matinee de Carnaval event page">
             <div class="event-line event-date">14.Feb</div>
             <div class="event-line event-title">Matinee de Carnaval (Freiburg)</div>
             <div class="event-line event-style">Forr&oacute;</div>
@@ -956,6 +1003,16 @@
 
   </div>
 
+  <div class="modal-overlay" id="matineeModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Matinee de Carnaval">
+      <img src="images/matine.jpeg" alt="Matinee de Carnaval" />
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" id="closeMatineeModal">Close</button>
+        <a class="btn btn-primary" href="https://www.instagram.com/associacaomauricio?igsh=bzB4cGdjenozYjJ3" target="_blank" rel="noopener noreferrer">More info</a>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div>© 2026 b.god c.reaction. All rights reserved.</div>
     <div><a href="#top">Back to top</a></div>
@@ -1101,6 +1158,38 @@
       }
       window.addEventListener("resize", positionHintImage);
       positionHintImage();
+    })();
+  </script>
+  <script>
+    (function () {
+      const openTrigger = document.querySelector('[data-open-matinee="true"]');
+      const modal = document.getElementById("matineeModal");
+      const closeBtn = document.getElementById("closeMatineeModal");
+      if (!openTrigger || !modal || !closeBtn) return;
+
+      function openModal() {
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      openTrigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        openModal();
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
     })();
   </script>
 </body>
