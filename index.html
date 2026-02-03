@@ -710,6 +710,36 @@
       justify-content: center;
     }
 
+    .booking-signature {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--stroke);
+      display: grid;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .booking-signature .name {
+      font-family: var(--font-body);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 15px;
+    }
+
+    .booking-signature .role {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+
+    .booking-signature .email a {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
     footer {
       padding: 24px 6vw 48px;
       color: var(--muted);
@@ -1000,16 +1030,24 @@
       <div class="section-title">Bookings &amp; Inquiries</div>
       <div class="panel">
         <div>
-          <!-- <h3>Bookings &amp; Inquiries</h3> -->
           <p>
-            Bring Brazilian energy to your dancefloor — from clubs and bars to private parties and open-air events.
+            For bookings, availability, and event details, reach out via email.
           </p>
           <p>
-            Get in touch to check availability and discuss the musical styles that best fit your event.
+            Share your date, venue, city, and preferred vibe. I’ll reply with options and a tailored direction.
           </p>
+
+          <div class="booking-signature">
+            <div class="role">b.god</div>
+            <div class="role">DJ / Creative Producer</div>
+            <div class="role">
+              contact@bgod-creaction.com
+            </div>
+          </div>
         </div>
+
         <div>
-          <a class="btn btn-primary" href="mailto:bgod.creaction@gmail.com">Bookings &amp; Inquiries</a>
+          <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com">Check availability</a>
         </div>
       </div>
     </section>
