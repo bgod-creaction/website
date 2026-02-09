@@ -607,8 +607,15 @@
     .media-grid {
       display: grid;
       gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      justify-items: center;
+      grid-template-columns: 1fr;
+      justify-items: stretch;
+      width: min(100%, 980px);
+    }
+
+    @media (min-width: 720px) {
+      .media-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     .media-embed {
@@ -618,6 +625,7 @@
       background: #000;
       aspect-ratio: 16 / 9;
       box-shadow: var(--shadow);
+      width: 100%;
     }
 
     .media-embed iframe {
@@ -974,6 +982,14 @@
       <div class="section-title">DJ live sets</div>
       <div class="media-grid">
         <!-- FIX: YouTube needs the /embed/ URL -->
+        <div class="media-embed" aria-label="YouTube video">
+          <iframe
+            src="https://www.youtube.com/embed/iedtvsLFxqE?si=T5hdmPuQNZPcwTcX"
+            title="b.god - bollytech"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
         <div class="media-embed" aria-label="YouTube video">
           <iframe
             src="https://www.youtube.com/embed/3f4p9ohpkno"
