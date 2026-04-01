@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="b.god is a Brazilian DJ based in Freiburg, Germany. As a brasilianischer DJ aus Brasilien and DJ brasileiro na Alemanha, he blends Brazilian Funk, Bass, Techno and Forró, performing at clubs, private events and cultural parties across Germany and Europe." />
-  <meta name="keywords" content="Brazilian DJ Germany, Brazilian DJ Freiburg, Brazilian Funk DJ Germany, DJ for private events Germany, Brasilianischer DJ Deutschland, Brasilianischer DJ Freiburg, DJ aus Brasilien Deutschland, DJ für private Events Deutschland, DJ brasileiro na Alemanha, DJ brasileiro em Freiburg, DJ de Funk brasileiro na Alemanha, DJ de Forró na Alemanha" />
+  <meta name="description" content="b.god is a Brazilian DJ based in Freiburg, Germany. As a brasilianischer DJ aus Brasilien and DJ brasileiro na Alemanha, he blends Brazilian Funk, Bass, Techno and ForrÃ³, performing at clubs, private events and cultural parties across Germany and Europe." />
+  <meta name="keywords" content="Brazilian DJ Germany, Brazilian DJ Freiburg, Brazilian Funk DJ Germany, DJ for private events Germany, Brasilianischer DJ Deutschland, Brasilianischer DJ Freiburg, DJ aus Brasilien Deutschland, DJ fÃ¼r private Events Deutschland, DJ brasileiro na Alemanha, DJ brasileiro em Freiburg, DJ de Funk brasileiro na Alemanha, DJ de ForrÃ³ na Alemanha" />
   <title>b.god | Brazilian DJ</title>
 
   <style>
@@ -70,7 +70,7 @@
     /* ========= PARALLAX BACKGROUND LAYER ========= */
     .parallax-bg {
       position: fixed;
-      inset: -10vh -10vw; /* sobra pra não aparecer borda quando mover */
+      inset: -10vh -10vw; /* sobra pra nÃ£o aparecer borda quando mover */
       z-index: -2;
       pointer-events: none;
 
@@ -255,7 +255,7 @@
     }
 
     .chip[data-audios]::after {
-      content: "»";
+      content: "Â»";
       position: absolute;
       right: 10px;
       top: 50%;
@@ -441,9 +441,8 @@
     .about-more,
     .media-more {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      justify-items: center;
     }
 
     .about-more summary,
@@ -494,11 +493,18 @@
       content: "Hide";
     }
 
-    .media-more {
+    .media-stack {
       width: min(100%, 980px);
+      display: grid;
       gap: 16px;
     }
 
+    .media-more {
+      width: 100%;
+      gap: 16px;
+    }
+
+    .media-grid,
     .media-more .media-grid {
       width: 100%;
     }
@@ -676,14 +682,25 @@
 
     .media-embed--soundcloud {
       aspect-ratio: auto;
+      display: flex;
+      flex-direction: column;
       background: rgba(12, 16, 22, 0.96);
       padding: 0;
     }
 
-    .media-embed--soundcloud iframe {
+    .media-embed-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .media-embed-frame iframe {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
-      height: 300px;
+      height: 100%;
       border: 0;
     }
 
@@ -1040,7 +1057,7 @@
 <!--         <div class="panel">
           <h3>Signature Sound</h3>
           <p>
-            Expect a blend of Brazilian Funk, Bass House, Hardgroove, Forró, and Techno. The vibe is
+            Expect a blend of Brazilian Funk, Bass House, Hardgroove, ForrÃ³, and Techno. The vibe is
             raw, fast, and rhythmic, made for late nights, peak sets, and unforgettable drop moments.
           </p>
         </div>
@@ -1060,70 +1077,72 @@
 
     <section class="section" id="media">
       <div class="section-title">DJ live sets</div>
-      <div class="media-grid">
-        <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
-          <iframe
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288562104&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-            title="PAGOFUNK PT.1"
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-          ></iframe>
-          <div class="soundcloud-credit">
-            <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
-            Â·
-            <a href="https://soundcloud.com/italo-de-almeida-391568128/pagofunk-pt-1" title="PAGOFUNK PT.1" target="_blank" rel="noopener noreferrer">PAGOFUNK PT.1</a>
-          </div>
-        </div>
-        <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
-          <iframe
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288563493&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-            title="PAGOFUNK PT.2"
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-          ></iframe>
-          <div class="soundcloud-credit">
-            <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
-            Â·
-            <a href="https://soundcloud.com/italo-de-almeida-391568128/pagofunk-pt-2" title="PAGOFUNK PT.2" target="_blank" rel="noopener noreferrer">PAGOFUNK PT.2</a>
-          </div>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/TMuEhWUZeSs?si=qOnb7gNkuaVPjRVR"
-            title="D3D4 | Praticas de Funk | it410 & b.god"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/HON6YCLRRBY?si=Zu7pBV_VrdqyGJTt"
-            title="D3D4 Live DJ Set | PagoFunk Session by it410 & b.god"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
-          <iframe
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2276988023&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-            title="D3D4 - BAILE PUNK no KTS"
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-          ></iframe>
-          <div class="soundcloud-credit">
-            <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
-            ·
-            <a href="https://soundcloud.com/italo-de-almeida-391568128/baile-punk-no-kts-d3d4" title="BAILE PUNK no KTS - D3D4" target="_blank" rel="noopener noreferrer">BAILE PUNK no KTS - D3D4</a>
-          </div>
-        </div>
-      </div>
-
-      <details class="media-more">
-        <summary><span class="about-more-label">More</span></summary>
+      <div class="media-stack">
         <div class="media-grid">
+          <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
+            <div class="media-embed-frame">
+              <iframe
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288562104&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+              title="PAGOFUNK PT.1"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+            ></iframe>
+            </div>
+            <div class="soundcloud-credit">
+              <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
+              Ã‚Â·
+              <a href="https://soundcloud.com/italo-de-almeida-391568128/pagofunk-pt-1" title="PAGOFUNK PT.1" target="_blank" rel="noopener noreferrer">PAGOFUNK PT.1</a>
+            </div>
+          </div>
+          <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
+            <div class="media-embed-frame">
+              <iframe
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288563493&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+              title="PAGOFUNK PT.2"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+            ></iframe>
+            </div>
+            <div class="soundcloud-credit">
+              <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
+              Ã‚Â·
+              <a href="https://soundcloud.com/italo-de-almeida-391568128/pagofunk-pt-2" title="PAGOFUNK PT.2" target="_blank" rel="noopener noreferrer">PAGOFUNK PT.2</a>
+            </div>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/TMuEhWUZeSs?si=qOnb7gNkuaVPjRVR"
+              title="D3D4 | Praticas de Funk | it410 & b.god"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/HON6YCLRRBY?si=Zu7pBV_VrdqyGJTt"
+              title="D3D4 Live DJ Set | PagoFunk Session by it410 & b.god"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
+            <div class="media-embed-frame">
+              <iframe
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2276988023&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+              title="D3D4 - BAILE PUNK no KTS"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+            ></iframe>
+            </div>
+            <div class="soundcloud-credit">
+              <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
+              Â·
+              <a href="https://soundcloud.com/italo-de-almeida-391568128/baile-punk-no-kts-d3d4" title="BAILE PUNK no KTS - D3D4" target="_blank" rel="noopener noreferrer">BAILE PUNK no KTS - D3D4</a>
+            </div>
+          </div>
           <div class="media-embed" aria-label="YouTube video">
             <iframe
               src="https://www.youtube.com/embed/zXfufH4q_cs?si=WxzPnHg5tPsC_EpM"
@@ -1132,6 +1151,11 @@
               allowfullscreen
             ></iframe>
           </div>
+        </div>
+
+        <details class="media-more">
+          <summary><span class="about-more-label">More</span></summary>
+          <div class="media-grid">
           <div class="media-embed" aria-label="YouTube video">
             <iframe
               src="https://www.youtube.com/embed/Y2EhJKGiNuA?si=ptIzfXHM0WdHGuv0"
@@ -1181,35 +1205,40 @@
             ></iframe>
           </div>
           <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
-            <iframe
+            <div class="media-embed-frame">
+              <iframe
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2188411087&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
               title="b.god on SoundCloud"
               scrolling="no"
               frameborder="no"
               allow="autoplay"
             ></iframe>
+            </div>
             <div class="soundcloud-credit">
               <a href="https://soundcloud.com/lucas-da-silva-650085683" title="bgod" target="_blank" rel="noopener noreferrer">bgod</a>
-              ·
+              Â·
               <a href="https://soundcloud.com/lucas-da-silva-650085683/d3d4-soliparty-at-kts-dj-it410-b2b-bgod" title="D3D4 - Soliparty at KTS (DJ it410 b2b b.god)" target="_blank" rel="noopener noreferrer">D3D4 - Soliparty at KTS (DJ it410 b2b b.god)</a>
             </div>
           </div>
           <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
-            <iframe
+            <div class="media-embed-frame">
+              <iframe
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1897352034&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
               title="da Silva DJ - bota na festinha #01"
               scrolling="no"
               frameborder="no"
               allow="autoplay"
             ></iframe>
+            </div>
             <div class="soundcloud-credit">
               <a href="https://soundcloud.com/lucas-da-silva-650085683" title="bgod" target="_blank" rel="noopener noreferrer">bgod</a>
-              ·
+              Â·
               <a href="https://soundcloud.com/lucas-da-silva-650085683/da-silva-dj-bota-na-festinha-01" title="da Silva DJ - bota na festinha #01" target="_blank" rel="noopener noreferrer">da Silva DJ - bota na festinha #01</a>
             </div>
           </div>
-        </div>
-      </details>
+          </div>
+        </details>
+      </div>
 
       <!-- <div class="panel media-links">
           <div class="link-card">
@@ -1245,7 +1274,7 @@
             For bookings, availability, and event details, reach out via email.
           </p>
           <p>
-            Share your date, venue, city, and preferred vibe. I’ll reply with options and a tailored direction.
+            Share your date, venue, city, and preferred vibe. Iâ€™ll reply with options and a tailored direction.
           </p>
 
           <div class="booking-signature">
@@ -1276,8 +1305,8 @@
   </div>
 
   <footer>
-    <div>© 2026 b.god c.reaction. All rights reserved.</div>
-    <div>Brazilian DJ · Brasilianischer DJ · DJ brasileiro na Alemanha</div>
+    <div>Â© 2026 b.god c.reaction. All rights reserved.</div>
+    <div>Brazilian DJ Â· Brasilianischer DJ Â· DJ brasileiro na Alemanha</div>
     <div><a href="#top">Back to top</a></div>
   </footer>
 
@@ -1293,7 +1322,7 @@
       let current = 0;
       let target = 0;
 
-      // suavidade (0.10-0.20). Quanto menor, mais "atrasado"/cinemático.
+      // suavidade (0.10-0.20). Quanto menor, mais "atrasado"/cinemÃ¡tico.
       const ease = 0.15;
 
       // velocidade do parallax (0.15-0.35). Quanto menor, mais lento o fundo.
@@ -1477,3 +1506,4 @@
   </script>
 </body>
 </html>
+
