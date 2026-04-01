@@ -438,14 +438,16 @@
       text-underline-offset: 3px;
     }
 
-    .about-more {
+    .about-more,
+    .media-more {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .about-more summary {
+    .about-more summary,
+    .media-more summary {
       cursor: pointer;
       list-style: none;
       padding: 8px 14px;
@@ -461,17 +463,20 @@
       transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
 
-    .about-more summary:hover {
+    .about-more summary:hover,
+    .media-more summary:hover {
       border-color: rgba(255, 255, 255, 0.25);
       color: var(--text);
       transform: translateY(-1px);
     }
 
-    .about-more summary::-webkit-details-marker {
+    .about-more summary::-webkit-details-marker,
+    .media-more summary::-webkit-details-marker {
       display: none;
     }
 
-    .about-more[open] summary {
+    .about-more[open] summary,
+    .media-more[open] summary {
       color: var(--text);
       border-color: rgba(63, 209, 167, 0.5);
       align-self: center;
@@ -479,12 +484,23 @@
       order: 2;
     }
 
-    .about-more[open] summary .about-more-label {
+    .about-more[open] summary .about-more-label,
+    .media-more[open] summary .about-more-label {
       display: none;
     }
 
-    .about-more[open] summary::after {
+    .about-more[open] summary::after,
+    .media-more[open] summary::after {
       content: "Hide";
+    }
+
+    .media-more {
+      width: min(100%, 980px);
+      gap: 16px;
+    }
+
+    .media-more .media-grid {
+      width: 100%;
     }
 
     .events-grid {
@@ -508,6 +524,30 @@
       box-shadow: var(--shadow);
       backdrop-filter: blur(6px);
       min-width: 0;
+    }
+
+    .event-card--past {
+      border-color: rgba(255, 255, 255, 0.05);
+      background: rgba(9, 12, 18, 0.08);
+    }
+
+    .event-card--past .event-link {
+      opacity: 0.56;
+      filter: saturate(0.7);
+    }
+
+    .event-card--past .event-line {
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(244, 245, 247, 0.36);
+    }
+
+    .event-card--past .event-date {
+      color: rgba(63, 209, 167, 0.62);
+    }
+
+    .event-card--past .event-style {
+      color: rgba(168, 176, 191, 0.78);
     }
 
     .event-card--featured {
@@ -632,6 +672,38 @@
       width: 100%;
       height: 100%;
       border: 0;
+    }
+
+    .media-embed--soundcloud {
+      aspect-ratio: auto;
+      background: rgba(12, 16, 22, 0.96);
+      padding: 0;
+    }
+
+    .media-embed--soundcloud iframe {
+      display: block;
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+
+    .soundcloud-credit {
+      padding: 8px 12px 10px;
+      font-size: 10px;
+      color: #cccccc;
+      line-break: anywhere;
+      word-break: normal;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+      font-weight: 100;
+      text-align: left;
+    }
+
+    .soundcloud-credit a {
+      color: #cccccc;
+      text-decoration: none;
     }
 
     .media-links {
@@ -861,49 +933,6 @@
           data-event-link="https://..."
           If one of them is empty, click stays inactive.
         -->
-<!--         <div class="event-card">
-          <a class="event-link" href="#" data-event-image="matine.jpeg" data-event-link="https://www.instagram.com/associacaomauricio?igsh=bzB4cGdjenozYjJ3" aria-label="Matinee de Carnaval event page">
-            <div class="event-line event-date">14.Feb</div>
-            <div class="event-line event-title">Matinee de Carnaval | Haus der Jugend | Freiburg DE</div>
-            <div class="event-line event-style">Forr&oacute;</div>
-          </a>
-        </div>
-        <div class="event-card">
-          <a class="event-link" href="#" data-event-image="carnaval-br-lat_02.jpg" data-event-link="https://www.instagram.com/mamitaclubfreiburg/" aria-label="Carnaval Mamita event page">
-            <div class="event-line event-date">14.Feb</div>
-            <div class="event-line event-title">Carnaval Brasil Latino | Mamita | Freiburg DE</div>
-            <div class="event-line event-style">Carnaval Hits</div>
-          </a>
-        </div> -->
-        <div class="event-card">
-          <a class="event-link" href="#" data-event-image="bailepunk.jpeg" data-event-link="https://www.instagram.com/trendstudiodoris?igsh=YXpzdmFuMG8weXk4" aria-label="KTS event page">
-            <div class="event-line event-date">28.Feb</div>
-            <div class="event-line event-title">D3D4 | Baile Punk | KTS | Freiburg DE</div>
-            <div class="event-line event-style">Funk Brasileiro</div>
-          </a>
-        </div>
-    
-        <div class="event-card">
-          <a class="event-link" href="#" data-event-image="" data-event-link="" aria-label="casamento pedro event page">
-            <div class="event-line event-date">15.Mar</div>
-            <div class="event-line event-title">Wedding Gabi & Pedro | Campo Grande BR</div>
-            <div class="event-line event-style">Special</div>
-          </a>
-        </div>
-        <div class="event-card">
-          <a class="event-link" href="#" data-event-image="pagofunk.jpeg" data-event-link="https://www.instagram.com/braska.events?igsh=a2V5cW53aTlxYWt3" aria-label="KA Caramuru">
-            <div class="event-line event-date">20.Mar</div>
-            <div class="event-line event-title">D3D4 | PagoFunk | Karlsruhe DE</div>
-            <div class="event-line event-style">Pagode e Funk Brasileiro</div>
-          </a>
-        </div>  
-        <div class="event-card">
-          <a class="event-link" href="#" data-event-image="d3d4-06.png" data-event-link="https://www.instagram.com/d3d4.intro?igsh=MXd3cjY4ZW00azd5ZQ==" aria-label="Rueffeto event page">
-            <div class="event-line event-date">28.Mar</div>
-            <div class="event-line event-title">D3D4 | ALL BLACK | Rueffeto | Freiburg DE</div>
-            <div class="event-line event-style">Funk Bass Brasileiro</div>
-          </a>
-        </div>
         <div class="event-card">
           <a class="event-link" href="#" data-event-image="" data-event-link="" aria-label="Agua da Fonte 2026 event page">
             <div class="event-line event-date">26.Sep</div>
@@ -911,6 +940,49 @@
             <div class="event-line event-style">Forr&oacute;</div>
           </a>
         </div>
+        <div class="event-card event-card--past">
+          <a class="event-link" href="#" data-event-image="d3d4-06.png" data-event-link="https://www.instagram.com/d3d4.intro?igsh=MXd3cjY4ZW00azd5ZQ==" aria-label="Rueffeto event page">
+            <div class="event-line event-date">28.Mar</div>
+            <div class="event-line event-title">D3D4 | ALL BLACK | Rueffeto | Freiburg DE</div>
+            <div class="event-line event-style">Funk Bass Brasileiro</div>
+          </a>
+        </div>
+        <div class="event-card event-card--past">
+          <a class="event-link" href="#" data-event-image="pagofunk.jpeg" data-event-link="https://www.instagram.com/braska.events?igsh=a2V5cW53aTlxYWt3" aria-label="KA Caramuru">
+            <div class="event-line event-date">20.Mar</div>
+            <div class="event-line event-title">D3D4 | PagoFunk | Karlsruhe DE</div>
+            <div class="event-line event-style">Pagode e Funk Brasileiro</div>
+          </a>
+        </div>
+        <div class="event-card event-card--past">
+          <a class="event-link" href="#" data-event-image="profile.jpg" data-event-link="www.bgod-creaction.com" aria-label="casamento pedro event page">
+            <div class="event-line event-date">15.Mar</div>
+            <div class="event-line event-title">Wedding Gabi & Pedro | Campo Grande BR</div>
+            <div class="event-line event-style">Special</div>
+          </a>
+        </div>
+        <div class="event-card event-card--past">
+          <a class="event-link" href="#" data-event-image="bailepunk.jpeg" data-event-link="https://www.instagram.com/trendstudiodoris?igsh=YXpzdmFuMG8weXk4" aria-label="KTS event page">
+            <div class="event-line event-date">28.Feb</div>
+            <div class="event-line event-title">D3D4 | Baile Punk | KTS | Freiburg DE</div>
+            <div class="event-line event-style">Funk Brasileiro</div>
+          </a>
+        </div>
+        <div class="event-card event-card--past">
+          <a class="event-link" href="#" data-event-image="matine.jpeg" data-event-link="https://www.instagram.com/associacaomauricio?igsh=bzB4cGdjenozYjJ3" aria-label="Matinee de Carnaval event page">
+            <div class="event-line event-date">14.Feb</div>
+            <div class="event-line event-title">Matinee de Carnaval | Haus der Jugend | Freiburg DE</div>
+            <div class="event-line event-style">Forr&oacute;</div>
+          </a>
+        </div>
+        <div class="event-card event-card--past">
+          <a class="event-link" href="#" data-event-image="carnaval-br-lat_02.jpg" data-event-link="https://www.instagram.com/mamitaclubfreiburg/" aria-label="Carnaval Mamita event page">
+            <div class="event-line event-date">14.Feb</div>
+            <div class="event-line event-title">Carnaval Brasil Latino | Mamita | Freiburg DE</div>
+            <div class="event-line event-style">Carnaval Hits</div>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -989,75 +1061,157 @@
     <section class="section" id="media">
       <div class="section-title">DJ live sets</div>
       <div class="media-grid">
-        <!-- FIX: YouTube needs the /embed/ URL -->
-         <div class="media-embed" aria-label="YouTube video">
+        <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
           <iframe
-            src="https://www.youtube.com/embed/zXfufH4q_cs?si=WxzPnHg5tPsC_EpM"
-            title="b.god - open decks benj cacula"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/Y2EhJKGiNuA?si=ptIzfXHM0WdHGuv0"
-            title="b.god - Mujica Bad Bunny DtMF"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/iedtvsLFxqE?si=T5hdmPuQNZPcwTcX"
-            title="b.god - bollytech"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/tiivlWv56Zw"
-            title="b.god - Live Set 2"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/3f4p9ohpkno"
-            title="b.god - Live Set"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/3uvacmSKIco?si=GaylzPN2SXlo8_YH"
-            title="b.god - dreadlocks session"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="media-embed" aria-label="YouTube video">
-          <iframe
-            src="https://www.youtube.com/embed/rcoNtIbxKxs"
-            title="b.god - Live Set 3"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <!-- NOTE: SoundCloud embeds usually require their player URL.
-             If your current link doesn't render, use the standard SoundCloud embed code. -->
-        <div class="media-embed" aria-label="SoundCloud player">
-          <iframe
-            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lucas-da-silva-650085683/d3d4-soliparty-at-kts-dj-it410-b2b-bgod&color=%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-            title="b.god on SoundCloud"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288562104&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+            title="PAGOFUNK PT.1"
+            scrolling="no"
+            frameborder="no"
             allow="autoplay"
           ></iframe>
+          <div class="soundcloud-credit">
+            <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
+            Â·
+            <a href="https://soundcloud.com/italo-de-almeida-391568128/pagofunk-pt-1" title="PAGOFUNK PT.1" target="_blank" rel="noopener noreferrer">PAGOFUNK PT.1</a>
+          </div>
         </div>
+        <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
+          <iframe
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2288563493&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+            title="PAGOFUNK PT.2"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+          ></iframe>
+          <div class="soundcloud-credit">
+            <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
+            Â·
+            <a href="https://soundcloud.com/italo-de-almeida-391568128/pagofunk-pt-2" title="PAGOFUNK PT.2" target="_blank" rel="noopener noreferrer">PAGOFUNK PT.2</a>
+          </div>
+        </div>
+        <div class="media-embed" aria-label="YouTube video">
+          <iframe
+            src="https://www.youtube.com/embed/TMuEhWUZeSs?si=qOnb7gNkuaVPjRVR"
+            title="D3D4 | Praticas de Funk | it410 & b.god"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="media-embed" aria-label="YouTube video">
+          <iframe
+            src="https://www.youtube.com/embed/HON6YCLRRBY?si=Zu7pBV_VrdqyGJTt"
+            title="D3D4 Live DJ Set | PagoFunk Session by it410 & b.god"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
+          <iframe
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2276988023&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+            title="D3D4 - BAILE PUNK no KTS"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+          ></iframe>
+          <div class="soundcloud-credit">
+            <a href="https://soundcloud.com/italo-de-almeida-391568128" title="IT410" target="_blank" rel="noopener noreferrer">IT410</a>
+            ·
+            <a href="https://soundcloud.com/italo-de-almeida-391568128/baile-punk-no-kts-d3d4" title="BAILE PUNK no KTS - D3D4" target="_blank" rel="noopener noreferrer">BAILE PUNK no KTS - D3D4</a>
+          </div>
+        </div>
+      </div>
 
-        <!-- <div class="panel media-links">
+      <details class="media-more">
+        <summary><span class="about-more-label">More</span></summary>
+        <div class="media-grid">
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/zXfufH4q_cs?si=WxzPnHg5tPsC_EpM"
+              title="b.god - open decks benj cacula"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/Y2EhJKGiNuA?si=ptIzfXHM0WdHGuv0"
+              title="b.god - Mujica Bad Bunny DtMF"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/iedtvsLFxqE?si=T5hdmPuQNZPcwTcX"
+              title="b.god - bollytech"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/tiivlWv56Zw"
+              title="b.god - Live Set 2"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/3f4p9ohpkno"
+              title="b.god - Live Set"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/3uvacmSKIco?si=GaylzPN2SXlo8_YH"
+              title="b.god - dreadlocks session"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed" aria-label="YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/rcoNtIbxKxs"
+              title="b.god - Live Set 3"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
+            <iframe
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2188411087&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+              title="b.god on SoundCloud"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+            ></iframe>
+            <div class="soundcloud-credit">
+              <a href="https://soundcloud.com/lucas-da-silva-650085683" title="bgod" target="_blank" rel="noopener noreferrer">bgod</a>
+              ·
+              <a href="https://soundcloud.com/lucas-da-silva-650085683/d3d4-soliparty-at-kts-dj-it410-b2b-bgod" title="D3D4 - Soliparty at KTS (DJ it410 b2b b.god)" target="_blank" rel="noopener noreferrer">D3D4 - Soliparty at KTS (DJ it410 b2b b.god)</a>
+            </div>
+          </div>
+          <div class="media-embed media-embed--soundcloud" aria-label="SoundCloud player">
+            <iframe
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1897352034&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+              title="da Silva DJ - bota na festinha #01"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+            ></iframe>
+            <div class="soundcloud-credit">
+              <a href="https://soundcloud.com/lucas-da-silva-650085683" title="bgod" target="_blank" rel="noopener noreferrer">bgod</a>
+              ·
+              <a href="https://soundcloud.com/lucas-da-silva-650085683/da-silva-dj-bota-na-festinha-01" title="da Silva DJ - bota na festinha #01" target="_blank" rel="noopener noreferrer">da Silva DJ - bota na festinha #01</a>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- <div class="panel media-links">
           <div class="link-card">
             <div>
               <strong>YouTube</strong>
