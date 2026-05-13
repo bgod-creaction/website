@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bgod-creaction.com/sitemap.xml
+Sitemap: https://www.bgod-creaction.com/sitemap.xml
