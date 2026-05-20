@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="b.god upcoming events - Brazilian DJ based in Freiburg, Germany" />
+  <title>b.god | Upcoming Events</title>
+  <link rel="canonical" href="https://www.bgod-creaction.com/qr/" />
+  <meta name="robots" content="noindex, follow" />
+
+  <style>
+    @font-face {
+      font-family: "MK Zodnig Square";
+      src: url("../fonts/mkzodsqu.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --bg: #0b0b0d;
+      --text: #f4f5f7;
+      --muted: #a8b0bf;
+      --accent: #3fd1a7;
+      --stroke: rgba(255, 255, 255, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      padding: 24px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      margin-bottom: 8px;
+    }
+
+    .logo-img {
+      height: 100px;
+      width: auto;
+      animation: glowPulse 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px rgba(63, 209, 167, 0.6));
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(63, 209, 167, 0.7))
+                drop-shadow(0 0 20px rgba(63, 209, 167, 0.3));
+      }
+      33% {
+        filter: drop-shadow(0 0 8px rgba(90, 162, 255, 0.7))
+                drop-shadow(0 0 20px rgba(90, 162, 255, 0.3));
+      }
+      66% {
+        filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.7))
+                drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
+      }
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .events-list {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .event {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      padding: 16px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .event:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .event--next {
+      background: rgba(63, 209, 167, 0.08);
+      border-color: rgba(63, 209, 167, 0.4);
+      position: relative;
+    }
+
+    .event--next::before {
+      content: "NEXT";
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .event__image-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .event__image-bg {
+      position: absolute;
+      inset: -20px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px) brightness(0.6);
+      transform: scale(1.1);
+    }
+
+    .event__image-featured {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    .event__thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1px solid var(--stroke);
+      cursor: pointer;
+      float: left;
+      margin-right: 12px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .event__thumb:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .event:not(.event--next) {
+      display: flow-root;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+      cursor: pointer;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .event__date {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .event__title {
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .event__style {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .event__link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--accent);
+      border-bottom: 1px dashed rgba(63, 209, 167, 0.5);
+    }
+
+    .event__link:hover {
+      border-style: solid;
+    }
+
+    .no-events {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 20px;
+    }
+
+    .events-more {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .events-more.is-open {
+      display: flex;
+    }
+
+    .expand-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--stroke);
+      border-radius: 8px;
+      color: var(--muted);
+      padding: 12px 20px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .expand-btn:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text);
+    }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 32px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer__links a {
+      font-size: 13px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--stroke);
+      transition: color 0.2s ease;
+    }
+
+    .footer__links a:hover {
+      color: var(--text);
+    }
+
+    .btn-main {
+      display: inline-block;
+      padding: 12px 24px;
+      background: rgba(63, 209, 167, 0.12);
+      border: 1px solid rgba(63, 209, 167, 0.4);
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      border-color: rgba(63, 209, 167, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img class="logo-img" src="../images/d3d4-qr.png" alt="D3D4" />
+    </div>
+  </header>
+
+  <main class="events-list" id="eventsList">
+    <div class="no-events">Loading events...</div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Event image" id="lightboxImg" />
+  </div>
+
+  <footer class="footer">
+    <a class="btn-main" href="https://www.bgod-creaction.com/">Full Website</a>
+    <div class="footer__links">
+      <a href="https://www.instagram.com/b.god_c.reaction" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@bgod-creaction" target="_blank" rel="noopener">YouTube</a>
+      <a href="mailto:contact@bgod-creaction.com">Booking</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const container = document.getElementById('eventsList');
+
+      function formatDate(dateStr, dateEndStr) {
+        const d = new Date(dateStr + 'T00:00:00');
+        const day = d.getDate().toString().padStart(2, '0');
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+        const month = months[d.getMonth()];
+
+        if (dateEndStr) {
+          const dEnd = new Date(dateEndStr + 'T00:00:00');
+          const dayEnd = dEnd.getDate().toString().padStart(2, '0');
+          if (d.getMonth() === dEnd.getMonth()) {
+            return `${day}-${dayEnd}.${month}`;
+          }
+          return `${day}.${month} - ${dayEnd}.${months[dEnd.getMonth()]}`;
+        }
+        return `${day}.${month}`;
+      }
+
+      function render(events) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const upcoming = events
+          .filter(e => {
+            const eventDate = new Date(e.date + 'T00:00:00');
+            const endDate = e.dateEnd ? new Date(e.dateEnd + 'T00:00:00') : eventDate;
+            return endDate >= today;
+          })
+          .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        if (!upcoming.length) {
+          container.innerHTML = '<div class="no-events">No upcoming events. Check back soon!</div>';
+          return;
+        }
+
+        const renderEvent = (event, isNext) => {
+          const hasLink = event.link && event.link.trim();
+          const hasImage = event.image && event.image.trim();
+          const imagePath = hasImage ? `../images/${event.image}` : '';
+
+          let imageHtml = '';
+          if (hasImage && isNext) {
+            imageHtml = `
+              <div class="event__image-wrapper">
+                <div class="event__image-bg" style="background-image: url('${imagePath}')"></div>
+                <img class="event__image-featured" src="${imagePath}" alt="${event.title}" />
+              </div>`;
+          } else if (hasImage) {
+            imageHtml = `<img class="event__thumb" src="${imagePath}" alt="${event.title}" data-full="${imagePath}" />`;
+          }
+
+          return `
+            <article class="event ${isNext ? 'event--next' : ''}">
+              ${imageHtml}
+              <div class="event__date">${formatDate(event.date, event.dateEnd)}</div>
+              <div class="event__title">${event.title}</div>
+              <div class="event__style">${event.style}</div>
+              ${hasLink ? `<a class="event__link" href="${event.link}" target="_blank" rel="noopener">More info &rarr;</a>` : ''}
+            </article>
+          `;
+        };
+
+        const nextEvent = renderEvent(upcoming[0], true);
+        const otherEvents = upcoming.slice(1).map(e => renderEvent(e, false)).join('');
+
+        let html = nextEvent;
+
+        if (upcoming.length > 1) {
+          html += `
+            <button class="expand-btn" id="expandBtn">More events (${upcoming.length - 1})</button>
+            <div class="events-more" id="eventsMore">${otherEvents}</div>
+          `;
+        }
+
+        container.innerHTML = html;
+
+        if (upcoming.length > 1) {
+          const expandBtn = document.getElementById('expandBtn');
+          const eventsMore = document.getElementById('eventsMore');
+          expandBtn.addEventListener('click', () => {
+            const isOpen = eventsMore.classList.toggle('is-open');
+            expandBtn.textContent = isOpen ? 'Hide events' : `More events (${upcoming.length - 1})`;
+          });
+        }
+
+        setupLightbox();
+      }
+
+      function setupLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const thumbs = document.querySelectorAll('.event__thumb');
+
+        thumbs.forEach(thumb => {
+          thumb.addEventListener('click', () => {
+            lightboxImg.src = thumb.dataset.full;
+            lightbox.classList.add('is-open');
+          });
+        });
+
+        lightbox.addEventListener('click', () => {
+          lightbox.classList.remove('is-open');
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') lightbox.classList.remove('is-open');
+        });
+      }
+
+      fetch('../events.json')
+        .then(r => r.json())
+        .then(render)
+        .catch(() => {
+          container.innerHTML = '<div class="no-events">Could not load events.</div>';
+        });
+    })();
+  </script>
+</body>
+</html>
