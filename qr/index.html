@@ -26,6 +26,22 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url('../images/backd3d4.png') center/cover no-repeat;
+      filter: blur(3px);
+      transform: scale(1.05);
+    }
+
+    .bg-layer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(11, 11, 13, 0.75);
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
@@ -239,6 +255,252 @@
       display: flex;
     }
 
+    .home-btn {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 50;
+      background: rgba(11, 11, 13, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      color: var(--muted);
+      padding: 8px 16px;
+      font-size: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .home-btn:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: var(--text);
+    }
+
+    .home-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .links-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 50;
+      background: rgba(11, 11, 13, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      color: var(--muted);
+      padding: 8px 16px;
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .links-btn:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: var(--text);
+    }
+
+    .links-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .links-popover {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 20px;
+    }
+
+    .links-popover.is-open {
+      display: flex;
+    }
+
+    .links-card {
+      position: relative;
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: min(90vw, 680px);
+      max-height: 85vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .links-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: url('../images/backd3d4.png') center/cover no-repeat;
+      border-radius: 16px;
+      transform: scale(1.5);
+      filter: brightness(0.3);
+    }
+
+
+    .links-intro {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .links-intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .links-intro-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 400px) {
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .links-cta {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, rgba(63, 209, 167, 0.2) 0%, rgba(90, 162, 255, 0.2) 100%);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .links-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(63, 209, 167, 0.25);
+    }
+
+    .links-cta span {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    .links-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .links-card-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text);
+    }
+
+    .links-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .links-close:hover {
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--text);
+    }
+
+    .links-section {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--stroke);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .links-section-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .links-section-title svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .links-item {
+      display: inline-block;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--stroke);
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--text);
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .links-item:hover {
+      border-color: var(--accent);
+      background: rgba(63, 209, 167, 0.12);
+      transform: translateY(-1px);
+    }
+
     .expand-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--stroke);
@@ -259,53 +521,98 @@
     .footer {
       margin-top: auto;
       padding-top: 32px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      width: 100%;
+      max-width: 420px;
     }
 
-    .footer__links {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .footer__links a {
-      font-size: 13px;
-      color: var(--muted);
-      border-bottom: 1px solid var(--stroke);
-      transition: color 0.2s ease;
-    }
-
-    .footer__links a:hover {
-      color: var(--text);
-    }
-
-    .btn-main {
-      display: inline-block;
-      padding: 12px 24px;
-      background: rgba(63, 209, 167, 0.12);
-      border: 1px solid rgba(63, 209, 167, 0.4);
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn-main:hover {
-      transform: translateY(-2px);
-      border-color: rgba(63, 209, 167, 0.7);
+    .footer .links-cta {
+      margin-top: 0;
     }
   </style>
 </head>
 <body>
+  <div class="bg-layer" aria-hidden="true"></div>
+
+  <a class="home-btn" href="https://www.bgod-creaction.com/">
+    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    b.god
+  </a>
+
+  <button class="links-btn" id="linksBtn">
+    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+    Meet D3D4
+  </button>
+
   <header class="header">
     <div class="logo">
       <img class="logo-img" src="../images/d3d4-qr.png" alt="D3D4" />
     </div>
   </header>
+
+  <div class="links-popover" id="linksPopover">
+    <div class="links-card">
+      <button class="links-close" id="linksClose">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+
+      <div class="links-intro">
+        <div class="links-intro-title">What is D3D4?</div>
+        <p class="links-intro-text">
+          D3D4 is the joint artistic project of <strong>b.god</strong> and <strong>it410</strong>, two DJs and close friends bringing Brazilian underground sounds into the European club scene. Together, they created D3D4 as a DJ duo and cultural platform focused on Brazilian Funk Bass. More than a performance, D3D4 represents their combined sound, energy, and identity — a growing cultural movement shaped equally by both artists.
+        </p>
+      </div>
+
+      <div class="links-grid">
+        <div class="links-section">
+          <div class="links-section-title">
+            <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+            Instagram
+          </div>
+          <div class="links-list">
+            <a class="links-item" href="https://www.instagram.com/d3d4.intro/" target="_blank" rel="noopener">D3D4</a>
+            <a class="links-item" href="https://www.instagram.com/b.god_c.reaction" target="_blank" rel="noopener">b.god</a>
+            <a class="links-item" href="https://www.instagram.com/it410_/" target="_blank" rel="noopener">it410</a>
+          </div>
+        </div>
+
+        <div class="links-section">
+          <div class="links-section-title">
+            <svg viewBox="0 0 24 24"><path d="M1 18V11h2v7H1zm3 0V9h2v9H4zm3 0V6h2v12H7zm3 0V4h2v14h-2zm3 0V7h2v11h-2zm6-8c-1.1 0-2 .9-2 2v6h6c1.1 0 2-.9 2-2v-2c0-2.2-1.8-4-4-4h-2z"/></svg>
+            SoundCloud
+          </div>
+          <div class="links-list">
+            <a class="links-item" href="https://soundcloud.com/lucas-da-silva-650085683" target="_blank" rel="noopener">b.god</a>
+            <a class="links-item" href="https://soundcloud.com/italo-de-almeida-391568128" target="_blank" rel="noopener">it410</a>
+          </div>
+        </div>
+
+        <div class="links-section">
+          <div class="links-section-title">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            YouTube
+          </div>
+          <div class="links-list">
+            <a class="links-item" href="https://www.youtube.com/@bgod-creaction" target="_blank" rel="noopener">b.god</a>
+          </div>
+        </div>
+
+        <div class="links-section">
+          <div class="links-section-title">
+            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            TikTok
+          </div>
+          <div class="links-list">
+            <a class="links-item" href="https://www.tiktok.com/@lucas.lesilva" target="_blank" rel="noopener">b.god</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="links-cta" href="mailto:contact@bgod-creaction.com?subject=D3D4%20Booking%20Inquiry">
+        Book D3D4 for your event
+        <span>Clubs, festivals & private parties</span>
+      </a>
+    </div>
+  </div>
 
   <main class="events-list" id="eventsList">
     <div class="no-events">Loading events...</div>
@@ -316,12 +623,10 @@
   </div>
 
   <footer class="footer">
-    <a class="btn-main" href="https://www.bgod-creaction.com/">Full Website</a>
-    <div class="footer__links">
-      <a href="https://www.instagram.com/b.god_c.reaction" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.youtube.com/@bgod-creaction" target="_blank" rel="noopener">YouTube</a>
-      <a href="mailto:contact@bgod-creaction.com">Booking</a>
-    </div>
+    <a class="links-cta" href="mailto:contact@bgod-creaction.com?subject=D3D4%20Booking%20Inquiry">
+      Book D3D4 for your event
+      <span>Clubs, festivals & private parties</span>
+    </a>
   </footer>
 
   <script>
@@ -435,6 +740,20 @@
           if (e.key === 'Escape') lightbox.classList.remove('is-open');
         });
       }
+
+      // Links popover
+      const linksBtn = document.getElementById('linksBtn');
+      const linksPopover = document.getElementById('linksPopover');
+      const linksClose = document.getElementById('linksClose');
+
+      linksBtn.addEventListener('click', () => linksPopover.classList.add('is-open'));
+      linksClose.addEventListener('click', () => linksPopover.classList.remove('is-open'));
+      linksPopover.addEventListener('click', (e) => {
+        if (e.target === linksPopover) linksPopover.classList.remove('is-open');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') linksPopover.classList.remove('is-open');
+      });
 
       fetch('../events.json')
         .then(r => r.json())
