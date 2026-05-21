@@ -42,12 +42,21 @@
       background: rgba(11, 11, 13, 0.75);
     }
 
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      min-height: 100dvh;
-      padding: 80px 16px 48px;
+    }
+
+    .page-scroll {
+      height: 100%;
+      overflow-y: auto;
+      padding: 0 16px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -255,11 +264,22 @@
       display: flex;
     }
 
-    .home-btn {
-      position: fixed;
-      top: 16px;
-      left: 16px;
+    .fixed-nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 16px;
+    }
+
+
+    .home-btn {
       background: rgba(11, 11, 13, 0.85);
       backdrop-filter: blur(8px);
       border: 1px solid var(--stroke);
@@ -286,10 +306,6 @@
     }
 
     .links-btn {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 50;
       background: rgba(11, 11, 13, 0.85);
       backdrop-filter: blur(8px);
       border: 1px solid var(--stroke);
@@ -533,21 +549,34 @@
 <body>
   <div class="bg-layer" aria-hidden="true"></div>
 
-  <a class="home-btn" href="https://www.bgod-creaction.com/">
-    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-    b.god
-  </a>
-
-  <button class="links-btn" id="linksBtn">
-    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-    Meet D3D4
-  </button>
-
+  <div class="page-scroll">
+  <nav class="fixed-nav">
+    <a class="home-btn" href="https://www.bgod-creaction.com/">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      b.god
+    </a>
+    <button class="links-btn" id="linksBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      Meet D3D4
+    </button>
+  </nav>
   <header class="header">
     <div class="logo">
       <img class="logo-img" src="../images/d3d4-qr.png" alt="D3D4" />
     </div>
   </header>
+
+  <main class="events-list" id="eventsList">
+    <div class="no-events">Loading events...</div>
+  </main>
+
+  <footer class="footer">
+    <a class="links-cta" href="mailto:contact@bgod-creaction.com?subject=D3D4%20Booking%20Inquiry">
+      Book D3D4 for your event
+      <span>Clubs, festivals & private parties</span>
+    </a>
+  </footer>
+  </div><!-- .page-scroll -->
 
   <div class="links-popover" id="linksPopover">
     <div class="links-card">
@@ -614,20 +643,9 @@
     </div>
   </div>
 
-  <main class="events-list" id="eventsList">
-    <div class="no-events">Loading events...</div>
-  </main>
-
   <div class="lightbox" id="lightbox">
     <img src="" alt="Event image" id="lightboxImg" />
   </div>
-
-  <footer class="footer">
-    <a class="links-cta" href="mailto:contact@bgod-creaction.com?subject=D3D4%20Booking%20Inquiry">
-      Book D3D4 for your event
-      <span>Clubs, festivals & private parties</span>
-    </a>
-  </footer>
 
   <script>
     (function() {
