@@ -44,22 +44,21 @@
 
     html, body {
       height: 100%;
-      overflow: hidden;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
     }
 
-    .page-scroll {
-      height: 100%;
-      overflow-y: auto;
-      padding: 0 16px 48px;
+    .page-content {
+      padding: 16px 16px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100%;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -264,17 +263,11 @@
       display: flex;
     }
 
-    .fixed-nav {
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
+    .top-nav {
       display: flex;
       justify-content: space-between;
-      padding: 16px;
       width: 100%;
-      max-width: 100%;
+      align-self: stretch;
       margin-bottom: 16px;
     }
 
@@ -549,8 +542,8 @@
 <body>
   <div class="bg-layer" aria-hidden="true"></div>
 
-  <div class="page-scroll">
-  <nav class="fixed-nav">
+  <div class="page-content">
+  <nav class="top-nav">
     <a class="home-btn" href="https://www.bgod-creaction.com/">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       b.god
@@ -576,7 +569,7 @@
       <span>Clubs, festivals & private parties</span>
     </a>
   </footer>
-  </div><!-- .page-scroll -->
+  </div><!-- .page-content -->
 
   <div class="links-popover" id="linksPopover">
     <div class="links-card">
