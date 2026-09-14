@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Brazilian Forr&oacute; DJ based in Germany. b.god is available for Forr&oacute; festivals, Brazilian dance events and cultural celebrations across Europe." />
+  <meta name="keywords" content="Forr&oacute; DJ, Brazilian DJ Europe, Forr&oacute; Festival DJ, Forr&oacute; DJ Germany, Brazilian Dance DJ, Forr&oacute; Party DJ" />
+  <title>Brazilian Forr&oacute; DJ | b.god | Festival Booking Europe</title>
+
+  <link rel="canonical" href="https://www.bgod-creaction.com/forro/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.bgod-creaction.com/forro/" />
+  <meta property="og:title" content="Brazilian Forr&oacute; DJ | b.god" />
+  <meta property="og:description" content="Brazilian Forr&oacute; DJ based in Germany. Available for festivals and events across Europe." />
+  <meta property="og:image" content="https://www.bgod-creaction.com/images/profile.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brazilian Forr&oacute; DJ | b.god" />
+  <meta name="twitter:description" content="Forr&oacute; DJ for festivals and Brazilian dance events in Europe." />
+  <meta name="twitter:image" content="https://www.bgod-creaction.com/images/profile.jpg" />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="b.god" />
+
+  <!-- Fonts: Space Grotesk (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "b.god",
+    "description": "Brazilian Forr&oacute; DJ based in Germany. Available for Forr&oacute; festivals and Brazilian dance events across Europe.",
+    "url": "https://www.bgod-creaction.com/forro/",
+    "image": "https://www.bgod-creaction.com/images/profile.jpg",
+    "genre": ["Forr&oacute;"],
+    "email": "contact@bgod-creaction.com",
+    "areaServed": [
+      {"@type": "Country", "name": "Germany"},
+      {"@type": "Country", "name": "Switzerland"},
+      {"@type": "Country", "name": "France"},
+      {"@type": "Country", "name": "Austria"},
+      {"@type": "Country", "name": "Netherlands"},
+      {"@type": "Country", "name": "Belgium"},
+      {"@type": "Continent", "name": "Europe"}
+    ]
+  }
+  </script>
+
+  <style>
+    @font-face {
+      font-family: "MK Zodnig Square";
+      src: url("../fonts/mkzodsqu.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --bg: #0b0b0d;
+      --bg-a: #08080a;
+      --bg-b: #282c32;
+      --cell: clamp(140px, 18vw, 260px);
+      --text: #f4f5f7;
+      --muted: #a8b0bf;
+      --accent: #3fd1a7;
+      --accent-glow: rgba(63, 209, 167, 0.15);
+      --stroke: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --font-display: "Space Grotesk", sans-serif;
+      --font-body: "Inter", sans-serif;
+    }
+
+    .checker-bg {
+      position: fixed;
+      top: -20vh;
+      left: 0;
+      right: 0;
+      bottom: -50vh;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+      background: repeating-conic-gradient(var(--bg-a) 0deg 90deg, var(--bg-b) 90deg 180deg) 0 0 / var(--cell) var(--cell);
+    }
+
+    .checker-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 45%, rgba(7, 8, 9, 0.7) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .checker-bg__logo {
+      position: absolute;
+      width: calc(var(--cell) * 0.35);
+      height: auto;
+      opacity: 0;
+      transition: opacity 3s ease-in-out;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .checker-bg__logo.is-visible {
+      opacity: var(--logo-opacity, 0.08);
+    }
+
+    .checker-bg__logo--light {
+      filter: brightness(0) invert(1) opacity(0.4);
+    }
+
+    .checker-bg__logo--dark {
+      filter: brightness(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .checker-bg__logo { transition: none; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 100%;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 6vw;
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .nav-brand {
+      font-family: "MK Zodnig Square", sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-back {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--stroke);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-back:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 60px 6vw 80px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(63, 209, 167, 0.06) 0%, transparent 100%);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 6px;
+      border: 1px solid var(--stroke);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: rgba(63, 209, 167, 0.12);
+      border-color: rgba(63, 209, 167, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(63, 209, 167, 0.7);
+      background: rgba(63, 209, 167, 0.18);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .section {
+      padding: 60px 6vw;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .media-embed {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      background: #000;
+      aspect-ratio: 16 / 9;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .media-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .content-block {
+      margin-bottom: 48px;
+    }
+
+    .content-block p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0 0 16px;
+    }
+
+    .content-block p strong {
+      color: var(--text);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .info-card h3 {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin: 0 0 12px;
+    }
+
+    .info-card p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .highlight-box {
+      background: rgba(63, 209, 167, 0.06);
+      border: 1px solid rgba(63, 209, 167, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .highlight-box h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    .highlight-box p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .booking-section {
+      text-align: center;
+      padding: 60px 6vw 80px;
+      background: linear-gradient(180deg, transparent 0%, rgba(63, 209, 167, 0.04) 100%);
+    }
+
+    .booking-section h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+    }
+
+    .booking-section p {
+      font-family: var(--font-body);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 0 24px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .booking-email {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 20px;
+    }
+
+    .booking-email a {
+      color: var(--text);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    footer {
+      padding: 24px 6vw;
+      text-align: center;
+      border-top: 1px solid var(--stroke);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer a {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 5vw 60px; }
+      .section { padding: 40px 5vw; }
+      .cta-row { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="checker-bg" aria-hidden="true" id="checkerBg"></div>
+  <div class="page">
+    <nav class="nav">
+      <a href="/" class="nav-brand">b.god</a>
+      <a href="/" class="nav-back">&larr; Back</a>
+    </nav>
+
+    <header class="hero">
+      <p class="hero-eyebrow">Brazilian Forr&oacute; DJ</p>
+      <h1>Brazilian Forr&oacute; DJ &mdash; b.god</h1>
+      <p class="hero-tagline">
+        Born in Brazil, based in Germany. Available for Forr&oacute; festivals,
+        Brazilian dance events and cultural celebrations across Europe.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#set">Listen to Forr&oacute; Set</a>
+        <a class="btn btn-ghost" href="#booking">Festival Booking</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="set">
+        <div class="section-title">Forr&oacute; DJ Set</div>
+        <div class="content-block">
+          <div class="media-embed">
+            <iframe
+              src="https://www.youtube.com/embed/7McJvTe_iaI?si=IFdxg3mu3YfAGWbd"
+              title="Forr&oacute; Futuro Ancestral - b.god"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Brazilian Roots</div>
+        <div class="content-block">
+          <p>
+            <strong>b.god is a Brazilian-born DJ</strong> who carries Forr&oacute; not just as a musical genre,
+            but as part of his cultural identity. Growing up with the rhythms of the Brazilian Northeast,
+            he brings authentic knowledge of the music, the dance, and the community that surrounds it.
+          </p>
+          <p>
+            Forr&oacute; &mdash; built around accordion, triangle, and zabumba &mdash; has grown into
+            one of the most beloved partner dance scenes in Europe over the past decade. Whether at
+            festivals, social dances, or cultural events, b.god delivers sets that honor the tradition
+            while keeping the energy high.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <h3>Based in Germany &mdash; Available Across Europe</h3>
+          <p>
+            Currently based in Freiburg, Germany, b.god is available for Forr&oacute; festivals and
+            events throughout Germany, Switzerland, France, Austria, Netherlands, Belgium and other
+            European countries. Festival organizers can rely on professional communication, punctuality,
+            and a genuine understanding of what makes a Forr&oacute; event work.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Origin</h3>
+            <p>Born in Brazil<br>Native speaker of Portuguese</p>
+          </div>
+          <div class="info-card">
+            <h3>Based In</h3>
+            <p>Freiburg, Germany<br>Central European location</p>
+          </div>
+          <div class="info-card">
+            <h3>Available For</h3>
+            <p>Forr&oacute; Festivals<br>Dance events &amp; parties</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="booking-section" id="booking">
+      <h2>Festival Booking</h2>
+      <p>
+        Planning a Forr&oacute; festival or Brazilian dance event in Europe?
+        Get in touch with event details &mdash; dates, location, and format.
+      </p>
+      <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com?subject=Forr%C3%B3%20Festival%20Booking">Request Booking</a>
+      <p class="booking-email">
+        Or email directly: <a href="mailto:contact@bgod-creaction.com">contact@bgod-creaction.com</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 b.god &middot; <a href="/">bgod-creaction.com</a></p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const container = document.getElementById("checkerBg");
+      if (!container) return;
+
+      const SVG_VARIANTS = [
+        "../images/bgod_g1.svg",
+        "../images/bgod_g2.svg",
+        "../images/bgod_g3.svg"
+      ];
+
+      const LOGO_COUNT = 14;
+      const MIN_OPACITY = 0.7;
+      const MAX_OPACITY = 1.0;
+      const CYCLE_INTERVAL = 10000;
+      const FADE_DURATION = 3000;
+
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const logos = [];
+      const occupiedCells = new Set();
+
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+      function pickVariant() { return SVG_VARIANTS[Math.floor(Math.random() * SVG_VARIANTS.length)]; }
+
+      function getSquareSize() {
+        const vw = window.innerWidth;
+        return Math.min(Math.max(140, vw * 0.18), 260) / 2;
+      }
+
+      function getGridDimensions() {
+        const squareSize = getSquareSize();
+        return { cols: Math.ceil(window.innerWidth / squareSize), rows: Math.ceil(window.innerHeight / squareSize), squareSize };
+      }
+
+      function cellKey(col, row) { return col + "," + row; }
+
+      function getRandomCell() {
+        const { cols, rows, squareSize } = getGridDimensions();
+        let col, row, key, attempts = 0;
+        do {
+          col = Math.floor(Math.random() * cols);
+          row = Math.floor(Math.random() * rows);
+          key = cellKey(col, row);
+          attempts++;
+        } while (occupiedCells.has(key) && attempts < 50);
+        return { col, row, key, squareSize };
+      }
+
+      function getCellCenter(col, row, squareSize) {
+        return { x: col * squareSize + squareSize / 2, y: row * squareSize + squareSize / 2 };
+      }
+
+      function isDarkSquare(col, row) { return (col + row) % 2 === 1; }
+
+      function createLogo() {
+        const img = document.createElement("img");
+        img.className = "checker-bg__logo";
+        img.alt = "";
+        img.setAttribute("aria-hidden", "true");
+        img.src = pickVariant();
+        img.style.setProperty("--logo-opacity", rand(MIN_OPACITY, MAX_OPACITY).toFixed(3));
+
+        const { col, row, key, squareSize } = getRandomCell();
+        const center = getCellCenter(col, row, squareSize);
+
+        img.style.left = center.x + "px";
+        img.style.top = center.y + "px";
+        img.dataset.cellKey = key;
+        img.dataset.col = col;
+        img.dataset.row = row;
+        occupiedCells.add(key);
+
+        img.classList.add(isDarkSquare(col, row) ? "checker-bg__logo--light" : "checker-bg__logo--dark");
+        if (Math.random() > 0.5) img.style.transform = "translate(-50%, -50%) scaleX(-1)";
+
+        container.appendChild(img);
+        requestAnimationFrame(() => requestAnimationFrame(() => img.classList.add("is-visible")));
+        return img;
+      }
+
+      function repositionLogo(img) {
+        img.classList.remove("is-visible");
+        occupiedCells.delete(img.dataset.cellKey);
+
+        setTimeout(() => {
+          const { col, row, key, squareSize } = getRandomCell();
+          const center = getCellCenter(col, row, squareSize);
+
+          img.style.left = center.x + "px";
+          img.style.top = center.y + "px";
+          img.dataset.cellKey = key;
+          img.dataset.col = col;
+          img.dataset.row = row;
+          occupiedCells.add(key);
+
+          img.classList.remove("checker-bg__logo--light", "checker-bg__logo--dark");
+          img.classList.add(isDarkSquare(col, row) ? "checker-bg__logo--light" : "checker-bg__logo--dark");
+          img.src = pickVariant();
+          img.style.setProperty("--logo-opacity", rand(MIN_OPACITY, MAX_OPACITY).toFixed(3));
+          if (Math.random() > 0.5) img.style.transform = "translate(-50%, -50%) scaleX(-1)";
+
+          requestAnimationFrame(() => img.classList.add("is-visible"));
+        }, FADE_DURATION);
+      }
+
+      for (let i = 0; i < LOGO_COUNT; i++) logos.push(createLogo());
+
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const squareSize = getSquareSize();
+          logos.forEach(img => {
+            const center = getCellCenter(parseInt(img.dataset.col), parseInt(img.dataset.row), squareSize);
+            img.style.left = center.x + "px";
+            img.style.top = center.y + "px";
+          });
+        }, 100);
+      }, { passive: true });
+
+      if (!prefersReduced) {
+        setInterval(() => repositionLogo(logos[Math.floor(Math.random() * logos.length)]), CYCLE_INTERVAL);
+
+        let scrollY = 0, currentY = 0;
+        const parallaxFactor = 0.15, ease = 0.08;
+        function onScroll() { scrollY = window.scrollY || 0; }
+        function animateParallax() {
+          currentY += (scrollY - currentY) * ease;
+          container.style.transform = `translate3d(0, ${-currentY * parallaxFactor}px, 0)`;
+          requestAnimationFrame(animateParallax);
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        animateParallax();
+      }
+    })();
+  </script>
+</body>
+</html>
