@@ -142,63 +142,40 @@
       background: var(--accent-dim);
     }
 
-    /* ========= HERO ========= */
+    /* ========= HERO (MOBILE-FIRST) ========= */
     .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      overflow: hidden;
+      padding: 72px 5vw 40px;
+      display: grid;
+      grid-template-areas:
+        "copy"
+        "media"
+        "play";
+      gap: 24px;
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-    }
-
-    .hero-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(8, 8, 8, 0.55) 0%,
-        rgba(8, 8, 8, 0.2) 30%,
-        rgba(8, 8, 8, 0.15) 50%,
-        rgba(8, 8, 8, 0.4) 75%,
-        rgba(8, 8, 8, 0.9) 100%
-      );
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      min-height: 100svh;
-      padding: clamp(90px, 14svh, 140px) 5vw clamp(32px, 6svh, 56px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hero-upper {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .hero-lower {
+    .hero-copy {
+      grid-area: copy;
       display: flex;
       flex-direction: column;
       gap: 12px;
+    }
+
+    .hero-media {
+      grid-area: media;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    .hero-play {
+      grid-area: play;
     }
 
     .hero-eyebrow {
@@ -208,6 +185,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent);
+      margin: 0;
     }
 
     .hero-title {
@@ -216,10 +194,10 @@
 
     .hero-brand {
       font-family: "MK Zodnig Square", sans-serif;
-      font-size: clamp(64px, 16vw, 140px);
+      font-size: clamp(56px, 14vw, 120px);
       font-weight: 400;
       letter-spacing: 0.02em;
-      line-height: 0.85;
+      line-height: 0.9;
       display: block;
     }
 
@@ -227,15 +205,13 @@
       font-size: 12px;
       color: var(--text-muted);
       max-width: 320px;
-      line-height: 1.6;
-      margin: 0;
+      line-height: 4.6;
+      margin: 4px 0 0;
     }
 
-    .hero-ctas {
-      display: flex;
-      gap: 12px;
-      margin-top: 8px;
-      flex-wrap: wrap;
+    .hero-play .btn {
+      width: 100%;
+      justify-content: center;
     }
 
     .btn {
@@ -287,37 +263,54 @@
     /* ========= DESKTOP HERO ========= */
     @media (min-width: 901px) {
       .hero {
-        display: grid;
+        min-height: 100vh;
+        padding: 60px 0 0 0;
         grid-template-columns: 1fr 1fr;
-        align-items: stretch;
-        padding-top: 60px;
+        grid-template-rows: 1fr auto;
+        grid-template-areas:
+          "copy media"
+          "play media";
+        gap: 0;
       }
 
-      .hero-bg {
+      .hero-copy {
+        padding: 60px 5vw 24px 8vw;
+        align-self: center;
+        gap: 16px;
+      }
+
+      .hero-media {
         position: relative;
-        order: 2;
+        border-radius: 0;
+        aspect-ratio: auto;
+        height: 100%;
       }
 
-      .hero-bg img {
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          var(--bg) 0%,
+          rgba(8, 8, 8, 0.7) 15%,
+          rgba(8, 8, 8, 0.3) 35%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      .hero-media img {
         object-position: center 20%;
       }
 
-      .hero-bg::after {
-        background: linear-gradient(to right, var(--bg) 0%, transparent 25%);
+      .hero-play {
+        padding: 0 5vw 60px 8vw;
+        align-self: start;
       }
 
-      .hero-content {
-        order: 1;
-        min-height: auto;
-        padding: 60px 5vw 60px 8vw;
-        justify-content: center;
-        align-items: flex-start;
-        gap: clamp(40px, 4vw, 64px);
-      }
-
-      .hero-upper,
-      .hero-lower {
-        gap: 12px;
+      .hero-play .btn {
+        width: auto;
       }
 
       .hero-brand {
@@ -326,13 +319,19 @@
       }
 
       .hero-desc {
-        max-width: 400px;
+        max-width: 420px;
+        font-size: 14px;
       }
     }
 
     /* ========= SECTIONS ========= */
     .section {
       padding: 80px 6vw;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin-inline: auto;
     }
 
     .section-label {
@@ -470,6 +469,7 @@
       gap: 40px;
       align-items: center;
       max-width: 1000px;
+      margin-inline: auto;
     }
 
     .sound-content {
@@ -526,7 +526,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      max-width: 1200px;
+      max-width: 1000px;
+      margin-inline: auto;
     }
 
     .live-main {
@@ -590,6 +591,8 @@
       gap: 32px;
       margin-top: 40px;
       align-items: start;
+      max-width: 1000px;
+      margin-inline: auto;
     }
 
     .live-video--loop {
@@ -690,7 +693,8 @@
       grid-template-columns: 200px 1fr;
       gap: 40px;
       align-items: center;
-      max-width: 800px;
+      max-width: 1000px;
+      margin-inline: auto;
     }
 
     .about-photo {
@@ -768,17 +772,10 @@
 
     .booking-email {
       font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .booking-email a {
       color: var(--text);
-      border-bottom: 1px solid var(--stroke);
-      transition: border-color 0.2s;
-    }
-
-    .booking-email a:hover {
-      border-color: var(--accent);
+      font-family: var(--font-body);
+      user-select: all;
+      margin: 0;
     }
 
     /* ========= FOOTER ========= */
@@ -829,11 +826,6 @@
         padding: 60px 5vw;
       }
 
-      .hero-ctas {
-        flex-direction: column;
-        width: 100%;
-      }
-
       .btn {
         justify-content: center;
         width: 100%;
@@ -864,7 +856,17 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-bg">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Freiburg, Germany · Tech House DJ</p>
+      <h1 class="hero-title">
+        <span class="hero-brand">b.god</span>
+        <span class="sr-only"> — Tech House DJ in Freiburg</span>
+      </h1>
+      <p class="hero-desc">
+        Groove-led Tech House for club.
+      </p>
+    </div>
+    <div class="hero-media">
       <img
         src="fotos_videos/IMG_7037.JPG"
         alt="b.god performing at Harmonie Keller in Freiburg"
@@ -873,26 +875,11 @@
         fetchpriority="high"
       />
     </div>
-    <div class="hero-content">
-      <div class="hero-upper">
-        <p class="hero-eyebrow">Freiburg, Germany · Tech House DJ</p>
-        <h1 class="hero-title">
-          <span class="hero-brand">b.god</span>
-          <span class="sr-only"> — Tech House DJ in Freiburg</span>
-        </h1>
-      </div>
-      <div class="hero-lower">
-        <p class="hero-desc">
-          Listen to the latest set or get in touch for club bookings.
-        </p>
-        <div class="hero-ctas">
-          <a href="#set" class="btn btn-primary">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
-            Play Latest Set
-          </a>
-          <a href="#booking" class="btn btn-ghost">Booking Inquiry</a>
-        </div>
-      </div>
+    <div class="hero-play">
+      <a href="#set" class="btn btn-primary" id="heroPlayBtn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
+        Play Tech House Set
+      </a>
     </div>
   </header>
 
@@ -1082,11 +1069,9 @@
         </p>
         <div class="booking-ctas">
           <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com?subject=Tech%20House%20Booking%20Inquiry">
-            Booking Inquiry
+            Email b.god
           </a>
-          <p class="booking-email">
-            Or email directly: <a href="mailto:contact@bgod-creaction.com">contact@bgod-creaction.com</a>
-          </p>
+          <p class="booking-email">contact@bgod-creaction.com</p>
         </div>
       </div>
     </section>
@@ -1105,18 +1090,19 @@
   <!-- Lite YouTube Embed -->
   <script>
     (function() {
-      const container = document.getElementById('videoContainer');
+      var container = document.getElementById('videoContainer');
       if (!container) return;
 
-      const playBtn = container.querySelector('.video-play-btn');
-      const videoId = '37dgNxpqr_Q';
-      let loaded = false;
+      var playBtn = container.querySelector('.video-play-btn');
+      var heroPlayBtn = document.getElementById('heroPlayBtn');
+      var videoId = '37dgNxpqr_Q';
+      var loaded = false;
 
       function loadIframe() {
         if (loaded) return;
         loaded = true;
 
-        const iframe = document.createElement('iframe');
+        var iframe = document.createElement('iframe');
         iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
         iframe.title = 'b.god - Tech House Set';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
@@ -1127,6 +1113,17 @@
       }
 
       playBtn.addEventListener('click', loadIframe);
+
+      if (heroPlayBtn) {
+        heroPlayBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.getElementById('set');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(loadIframe, 400);
+          }
+        });
+      }
     })();
   </script>
 
