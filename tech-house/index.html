@@ -1,52 +1,55 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Tech House DJ in Freiburg. b.god ist ein brasilianischer DJ spezialisiert auf Tech House f&uuml;r Clubs und elektronische Festivals in Baden-W&uuml;rttemberg und S&uuml;dbaden." />
-  <meta name="keywords" content="Tech House DJ Freiburg, Club DJ Freiburg, Tech House Freiburg, DJ Freiburg, Electronic DJ Baden-W&uuml;rttemberg, Tech House DJ buchen" />
-  <title>Tech House DJ Freiburg | b.god | Club DJ buchen</title>
+  <meta name="description" content="b.god is a Tech House DJ based in Freiburg, Germany. Watch the latest DJ set and get in touch for club nights, showcases and electronic events." />
+  <title>Tech House DJ Freiburg | b.god — Club Bookings</title>
 
   <link rel="canonical" href="https://www.bgod-creaction.com/tech-house/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.bgod-creaction.com/tech-house/" />
-  <meta property="og:title" content="Tech House DJ Freiburg | b.god" />
-  <meta property="og:description" content="Tech House DJ in Freiburg. Booking f&uuml;r Clubs und elektronische Festivals in Baden-W&uuml;rttemberg." />
-  <meta property="og:image" content="https://www.bgod-creaction.com/images/profile.jpg" />
-  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="b.god — Tech House DJ" />
+  <meta property="og:description" content="Tech House from Freiburg, Germany. Watch the latest set and get in touch for bookings." />
+  <meta property="og:image" content="https://www.bgod-creaction.com/tech-house/fotos_videos/IMG_7037.JPG" />
+  <meta property="og:locale" content="en_GB" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Tech House DJ Freiburg | b.god" />
-  <meta name="twitter:description" content="Tech House DJ in Freiburg. Booking f&uuml;r Clubs und Festivals." />
-  <meta name="twitter:image" content="https://www.bgod-creaction.com/images/profile.jpg" />
+  <meta name="twitter:title" content="b.god — Tech House DJ" />
+  <meta name="twitter:description" content="Tech House from Freiburg, Germany. Watch the latest set and get in touch for bookings." />
+  <meta name="twitter:image" content="https://www.bgod-creaction.com/tech-house/fotos_videos/IMG_7037.JPG" />
 
   <meta name="robots" content="index, follow" />
   <meta name="author" content="b.god" />
   <meta name="geo.region" content="DE-BW" />
   <meta name="geo.placename" content="Freiburg im Breisgau" />
 
-  <!-- Fonts: Space Grotesk (display) + Inter (body) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
     "name": "b.god",
-    "description": "Tech House DJ aus Freiburg, Deutschland. Booking f&uuml;r Clubs und elektronische Festivals.",
+    "description": "Tech House DJ based in Freiburg, Germany. Available for club nights, showcases and electronic events.",
     "url": "https://www.bgod-creaction.com/tech-house/",
-    "image": "https://www.bgod-creaction.com/images/profile.jpg",
+    "image": "https://www.bgod-creaction.com/tech-house/fotos_videos/IMG_7037.JPG",
     "genre": ["Tech House"],
     "email": "contact@bgod-creaction.com",
+    "sameAs": [
+      "https://www.youtube.com/@bgod-creaction",
+      "https://www.instagram.com/b.god_c.reaction"
+    ],
     "areaServed": [
       {"@type": "City", "name": "Freiburg im Breisgau"},
-      {"@type": "State", "name": "Baden-W&uuml;rttemberg"},
-      {"@type": "Place", "name": "S&uuml;dbaden"}
+      {"@type": "State", "name": "Baden-Württemberg"},
+      {"@type": "Country", "name": "Germany"}
     ]
   }
   </script>
@@ -59,69 +62,21 @@
     }
 
     :root {
-      color-scheme: dark;
-      --bg: #0b0b0d;
-      --bg-a: #08080a;
-      --bg-b: #282c32;
-      --cell: clamp(140px, 18vw, 260px);
-      --text: #f4f5f7;
-      --muted: #a8b0bf;
-      --accent: #5aa2ff;
-      --accent-glow: rgba(90, 162, 255, 0.15);
+      --bg: #080808;
+      --bg-elevated: #0e0e0e;
+      --text: #f0f0f0;
+      --text-muted: #888888;
+      --accent: #5a9fff;
+      --accent-dim: rgba(90, 159, 255, 0.12);
       --stroke: rgba(255, 255, 255, 0.08);
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-      --radius: 18px;
+      --stroke-hover: rgba(255, 255, 255, 0.16);
       --font-display: "Space Grotesk", sans-serif;
       --font-body: "Inter", sans-serif;
     }
 
-    .checker-bg {
-      position: fixed;
-      top: -20vh;
-      left: 0;
-      right: 0;
-      bottom: -50vh;
-      z-index: -2;
-      pointer-events: none;
-      overflow: hidden;
-      background: repeating-conic-gradient(var(--bg-a) 0deg 90deg, var(--bg-b) 90deg 180deg) 0 0 / var(--cell) var(--cell);
-    }
-
-    .checker-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 45%, rgba(7, 8, 9, 0.7) 0%, transparent 100%);
-      pointer-events: none;
-    }
-
-    .checker-bg__logo {
-      position: absolute;
-      width: calc(var(--cell) * 0.35);
-      height: auto;
-      opacity: 0;
-      transition: opacity 3s ease-in-out;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-    }
-
-    .checker-bg__logo.is-visible {
-      opacity: var(--logo-opacity, 0.08);
-    }
-
-    .checker-bg__logo--light {
-      filter: brightness(0) invert(1) opacity(0.4);
-    }
-
-    .checker-bg__logo--dark {
-      filter: brightness(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .checker-bg__logo { transition: none; }
-    }
-
     *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -129,472 +84,1093 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      font-size: 100%;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    .page {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
+    /* ========= NAV ========= */
     .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 6vw;
+      padding: 16px 5vw;
+      background: rgba(8, 8, 8, 0.9);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--stroke);
     }
 
     .nav-brand {
       font-family: "MK Zodnig Square", sans-serif;
-      font-size: 28px;
-      font-weight: 400;
+      font-size: 24px;
       letter-spacing: 0.02em;
     }
 
-    .nav-back {
+    .nav-cta {
       font-family: var(--font-display);
       font-size: 12px;
       font-weight: 600;
-      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 20px;
       border: 1px solid var(--stroke);
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: border-color 0.2s ease, color 0.2s ease;
+      border-radius: 4px;
+      transition: border-color 0.2s, background 0.2s;
     }
 
-    .nav-back:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      color: var(--text);
+    .nav-cta:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
     }
 
+    /* ========= HERO ========= */
     .hero {
-      padding: 60px 6vw 80px;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(90, 162, 255, 0.06) 0%, transparent 100%);
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(8, 8, 8, 0.55) 0%,
+        rgba(8, 8, 8, 0.2) 30%,
+        rgba(8, 8, 8, 0.15) 50%,
+        rgba(8, 8, 8, 0.4) 75%,
+        rgba(8, 8, 8, 0.9) 100%
+      );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 100svh;
+      padding: clamp(90px, 14svh, 140px) 5vw clamp(32px, 6svh, 56px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-upper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-lower {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .hero-eyebrow {
       font-family: var(--font-display);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      margin: 0;
+    }
+
+    .hero-brand {
+      font-family: "MK Zodnig Square", sans-serif;
+      font-size: clamp(64px, 16vw, 140px);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 0.85;
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 320px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 14px 24px;
+      border: 1px solid var(--stroke);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: var(--accent-dim);
+      border-color: rgba(90, 159, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      border-color: var(--accent);
+      background: rgba(90, 159, 255, 0.2);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--stroke-hover);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* ========= DESKTOP HERO ========= */
+    @media (min-width: 901px) {
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+        padding-top: 60px;
+      }
+
+      .hero-bg {
+        position: relative;
+        order: 2;
+      }
+
+      .hero-bg img {
+        object-position: center 20%;
+      }
+
+      .hero-bg::after {
+        background: linear-gradient(to right, var(--bg) 0%, transparent 25%);
+      }
+
+      .hero-content {
+        order: 1;
+        min-height: auto;
+        padding: 60px 5vw 60px 8vw;
+        justify-content: center;
+        align-items: flex-start;
+        gap: clamp(40px, 4vw, 64px);
+      }
+
+      .hero-upper,
+      .hero-lower {
+        gap: 12px;
+      }
+
+      .hero-brand {
+        font-size: clamp(72px, 8vw, 120px);
+        line-height: 1;
+      }
+
+      .hero-desc {
+        max-width: 400px;
+      }
+    }
+
+    /* ========= SECTIONS ========= */
+    .section {
+      padding: 80px 6vw;
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
       color: var(--accent);
       margin-bottom: 16px;
     }
 
-    h1 {
+    .section-title {
       font-family: var(--font-display);
-      font-size: clamp(28px, 5vw, 42px);
+      font-size: clamp(24px, 4vw, 36px);
       font-weight: 700;
-      margin: 0 0 20px;
       letter-spacing: -0.02em;
-      line-height: 1.1;
+      margin: 0 0 24px;
     }
 
-    .hero-tagline {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 540px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
+    /* ========= FEATURED SET ========= */
+    .featured-set {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
     }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-    }
-
-    .btn {
-      padding: 14px 28px;
-      border-radius: 6px;
-      border: 1px solid var(--stroke);
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .btn-primary {
-      background: rgba(90, 162, 255, 0.12);
-      border-color: rgba(90, 162, 255, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      border-color: rgba(90, 162, 255, 0.7);
-      background: rgba(90, 162, 255, 0.18);
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-1px);
-    }
-
-    .section {
-      padding: 60px 6vw;
-      max-width: 900px;
+    .featured-set-inner {
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    .section-title {
-      font-family: var(--font-display);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 24px;
-    }
-
-    .media-embed {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--stroke);
-      background: #000;
+    .video-container {
+      position: relative;
       aspect-ratio: 16 / 9;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
+      background: #000;
+      border-radius: 6px;
+      overflow: hidden;
     }
 
-    .media-embed iframe {
+    .video-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .video-play-btn:hover,
+    .video-play-btn:focus {
+      background: rgba(90, 159, 255, 0.9);
+      border-color: var(--accent);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .video-play-btn:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    .video-play-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+      margin-left: 4px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
     }
 
-    .content-block {
-      margin-bottom: 48px;
+    .video-info {
+      margin-top: 20px;
     }
 
-    .content-block p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-      margin: 0 0 16px;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    .video-meta {
+      display: flex;
       gap: 24px;
-      margin-top: 32px;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 16px;
     }
 
-    .info-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--stroke);
-      border-radius: 12px;
-      padding: 20px;
+    .video-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .info-card h3 {
+    .video-meta .label {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .video-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .video-desc strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ========= THE SOUND ========= */
+    .sound-section {
+      background: var(--bg);
+    }
+
+    .sound-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 1000px;
+    }
+
+    .sound-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sound-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .sound-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .sound-image {
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      max-height: 480px;
+    }
+
+    .sound-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    @media (max-width: 800px) {
+      .sound-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .sound-image {
+        order: -1;
+        max-height: 360px;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    /* ========= LIVE ========= */
+    .live-section {
+      background: var(--bg);
+    }
+
+    .live-editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+    }
+
+    .live-main {
+      grid-row: span 2;
+    }
+
+    .live-media {
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .live-media img,
+    .live-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .live-main .live-media {
+      height: 100%;
+    }
+
+    .live-main .live-media img {
+      min-height: 400px;
+    }
+
+    .live-secondary .live-media {
+      aspect-ratio: 4 / 3;
+    }
+
+    .live-video-loop video {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    @media (max-width: 800px) {
+      .live-editorial {
+        grid-template-columns: 1fr;
+      }
+
+      .live-main {
+        grid-row: auto;
+      }
+
+      .live-main .live-media {
+        aspect-ratio: 3 / 4;
+        height: auto;
+      }
+
+      .live-main .live-media img {
+        min-height: auto;
+      }
+    }
+
+    /* ========= LIVE + APPEARANCES LAYOUT ========= */
+    .live-bottom {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      margin-top: 40px;
+      align-items: start;
+    }
+
+    .live-video--loop {
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 4 / 3;
+    }
+
+    .live-video--loop video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ========= APPEARANCES ========= */
+    .appearances {
+      padding: 0;
+    }
+
+    .appearances-title {
       font-family: var(--font-display);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin: 0 0 20px;
+    }
+
+    .appearances-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .appearance {
+      border-left: 2px solid var(--stroke);
+      padding-left: 16px;
+    }
+
+    .appearance-venue {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 2px;
+    }
+
+    .appearance-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .appearances-outdoor {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--stroke);
+    }
+
+    .appearances-outdoor-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
       margin: 0 0 12px;
     }
 
-    .info-card p {
-      font-family: var(--font-body);
+    .appearances-outdoor-list {
       font-size: 13px;
-      font-weight: 400;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.6;
+      color: var(--text-muted);
+      line-height: 1.8;
     }
 
+    @media (max-width: 900px) {
+      .live-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .live-video--loop {
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    /* ========= ABOUT ========= */
+    .about-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 800px;
+    }
+
+    .about-photo {
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin: 0 0 12px;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 900px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-photo {
+        max-width: 180px;
+        margin: 0 auto;
+      }
+    }
+
+    /* ========= BOOKING ========= */
     .booking-section {
       text-align: center;
-      padding: 60px 6vw 80px;
-      background: linear-gradient(180deg, transparent 0%, rgba(90, 162, 255, 0.04) 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
     }
 
-    .booking-section h2 {
+    .booking-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .booking-title {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: clamp(28px, 5vw, 40px);
       font-weight: 700;
-      letter-spacing: -0.01em;
-      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
     }
 
-    .booking-section p {
-      font-family: var(--font-body);
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 400;
+    .booking-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
       margin: 0 0 24px;
     }
 
+    .booking-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .booking-ctas {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
     .booking-email {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 20px;
+      font-size: 14px;
+      color: var(--text-muted);
     }
 
     .booking-email a {
       color: var(--text);
       border-bottom: 1px solid var(--stroke);
+      transition: border-color 0.2s;
     }
 
-    footer {
-      padding: 24px 6vw;
-      text-align: center;
+    .booking-email a:hover {
+      border-color: var(--accent);
+    }
+
+    /* ========= FOOTER ========= */
+    .footer {
+      padding: 32px 8vw;
       border-top: 1px solid var(--stroke);
-      color: var(--muted);
-      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
-    footer a {
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
       color: var(--text);
     }
 
+    .footer-back {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     @media (max-width: 600px) {
-      .hero { padding: 40px 5vw 60px; }
-      .section { padding: 40px 5vw; }
-      .cta-row { flex-direction: column; align-items: stretch; }
-      .btn { justify-content: center; }
+      .nav {
+        padding: 12px 5vw;
+      }
+
+      .nav-brand {
+        font-size: 20px;
+      }
+
+      .nav-cta {
+        padding: 8px 14px;
+        font-size: 11px;
+      }
+
+      .section {
+        padding: 60px 5vw;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+
+    /* ========= REDUCED MOTION ========= */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+      .video-play-btn { transition: none; }
     }
   </style>
 </head>
 <body>
-  <div class="checker-bg" aria-hidden="true" id="checkerBg"></div>
-  <div class="page">
-    <nav class="nav">
-      <a href="/" class="nav-brand">b.god</a>
-      <a href="/" class="nav-back">&larr; Zur&uuml;ck</a>
-    </nav>
 
-    <header class="hero">
-      <p class="hero-eyebrow">Tech House DJ</p>
-      <h1>Tech House DJ in Freiburg &mdash; b.god</h1>
-      <p class="hero-tagline">
-        Brasilianischer DJ mit Fokus auf Tech House f&uuml;r Clubs und elektronische Festivals
-        in Freiburg, Baden-W&uuml;rttemberg und S&uuml;dbaden.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#set">Tech House Set h&ouml;ren</a>
-        <a class="btn btn-ghost" href="#booking">Booking Anfrage</a>
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-brand">b.god</a>
+    <a href="#booking" class="nav-cta">Booking</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg">
+      <img
+        src="fotos_videos/IMG_7037.JPG"
+        alt="b.god performing at Harmonie Keller in Freiburg"
+        width="801"
+        height="1068"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="hero-content">
+      <div class="hero-upper">
+        <p class="hero-eyebrow">Freiburg, Germany · Tech House DJ</p>
+        <h1 class="hero-title">
+          <span class="hero-brand">b.god</span>
+          <span class="sr-only"> — Tech House DJ in Freiburg</span>
+        </h1>
       </div>
-    </header>
-
-    <main>
-      <section class="section" id="set">
-        <div class="section-title">Tech House Set</div>
-        <div class="content-block">
-          <div class="media-embed">
-            <iframe
-              src="https://www.youtube.com/embed/rcoNtIbxKxs?si=Ap9QIZKbW2QymZGO"
-              title="b.god - Tech House Set"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
+      <div class="hero-lower">
+        <p class="hero-desc">
+          Listen to the latest set or get in touch for club bookings.
+        </p>
+        <div class="hero-ctas">
+          <a href="#set" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
+            Play Latest Set
+          </a>
+          <a href="#booking" class="btn btn-ghost">Booking Inquiry</a>
         </div>
-      </section>
+      </div>
+    </div>
+  </header>
 
-      <section class="section">
-        <div class="section-title">&Uuml;ber</div>
-        <div class="content-block">
-          <p>
-            b.god ist ein brasilianischer DJ mit Sitz in Freiburg im Breisgau. Mit seiner Erfahrung
-            in der elektronischen Musikszene bringt er energiegeladene Tech House Sets in Clubs
-            und auf Festivals der Region.
+  <main>
+    <!-- FEATURED SET -->
+    <section class="section featured-set" id="set" aria-labelledby="set-title">
+      <div class="featured-set-inner">
+        <p class="section-label">Latest Set</p>
+        <h2 id="set-title" class="section-title">Tech House Set</h2>
+
+        <div class="video-container" id="videoContainer">
+          <img
+            class="video-poster"
+            src="https://img.youtube.com/vi/37dgNxpqr_Q/maxresdefault.jpg"
+            alt=""
+            loading="lazy"
+          />
+          <button class="video-play-btn" type="button" aria-label="Play Tech House Set video">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
+          </button>
+        </div>
+
+        <div class="video-info">
+          <div class="video-meta">
+            <span><span class="label">Duration:</span> 44 min</span>
+            <span><span class="label">Recorded:</span> 14 Sep 2026</span>
+            <span><span class="label">Location:</span> Freiburg</span>
+            <span><span class="label">Genre:</span> 100% Tech House</span>
+          </div>
+          <p class="video-desc">
+            A low-vocal club session built around vocal chops and loops.
           </p>
-          <p>
-            Verf&uuml;gbar f&uuml;r Club-Nights, Festival-Slots und elektronische Events in
-            Baden-W&uuml;rttemberg, S&uuml;dbaden, Basel und dem Dreil&auml;ndereck.
-          </p>
         </div>
-
-        <div class="info-grid">
-          <div class="info-card">
-            <h3>Standort</h3>
-            <p>Freiburg im Breisgau<br>Baden-W&uuml;rttemberg</p>
-          </div>
-          <div class="info-card">
-            <h3>Verf&uuml;gbarkeit</h3>
-            <p>S&uuml;dbaden, Basel<br>Dreil&auml;ndereck, Deutschland</p>
-          </div>
-          <div class="info-card">
-            <h3>Events</h3>
-            <p>Clubs, Festivals<br>Open Air, Private Events</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <section class="booking-section" id="booking">
-      <h2>Booking Anfrage</h2>
-      <p>
-        F&uuml;r Club-Bookings, Festival-Slots oder elektronische Events &mdash;
-        schreibe mir mit Datum, Venue und gew&uuml;nschtem Set-Style.
-      </p>
-      <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com?subject=Tech%20House%20Booking%20Anfrage">Booking anfragen</a>
-      <p class="booking-email">
-        Oder direkt: <a href="mailto:contact@bgod-creaction.com">contact@bgod-creaction.com</a>
-      </p>
+      </div>
     </section>
 
-    <footer>
-      <p>&copy; 2026 b.god &middot; <a href="/">bgod-creaction.com</a></p>
-    </footer>
-  </div>
+    <!-- THE SOUND -->
+    <section class="section sound-section" aria-labelledby="sound-title">
+      <div class="sound-inner">
+        <div class="sound-content">
+          <p class="section-label">The Sound</p>
+          <h2 id="sound-title" class="sr-only">Sound Description</h2>
+          <p class="sound-text">
+            Groove-led Tech House with a low-vocal approach, vocal chops and loops. <strong>The energy follows the slot</strong>, with a more restrained and patient selection for warm-up and a more driving approach at peak time. Subtle Latin and Brazilian touches add some flavor to the selection.
+          </p>
+        </div>
+        <div class="sound-image">
+          <img
+            src="fotos_videos/IMG-20260328-WA0116.jpg"
+            alt="b.god performing at a club"
+            width="801"
+            height="1068"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
 
+    <!-- LIVE -->
+    <section class="section live-section" aria-labelledby="live-title">
+      <p class="section-label">Live</p>
+      <h2 id="live-title" class="sr-only">Live Performances</h2>
+
+      <!-- Editorial 2-column layout -->
+      <div class="live-editorial">
+        <div class="live-main">
+          <div class="live-media">
+            <img
+              src="fotos_videos/IMG-20260329-WA0029.jpg"
+              alt="b.god performing to a crowd at an underground club in Freiburg"
+              width="801"
+              height="1068"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="live-secondary live-video-loop">
+          <div class="live-media" id="liveVideoContainer2">
+            <video
+              id="liveVideo2"
+              src="fotos_videos/VID-20260330-WA0057-web.mp4"
+              muted
+              loop
+              playsinline
+              preload="none"
+              width="848"
+              height="480"
+            ></video>
+          </div>
+        </div>
+        <div class="live-secondary">
+          <div class="live-media">
+            <img
+              src="fotos_videos/IMG-20251123-WA0082.jpg"
+              alt="b.god in the DJ booth with crowd close by"
+              width="1424"
+              height="1068"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Loop video + Appearances -->
+      <div class="live-bottom">
+        <div class="live-video--loop" id="loopVideoContainer">
+          <video
+            id="loopVideo"
+            src="fotos_videos/IMG_7033-web.mp4"
+            muted
+            loop
+            playsinline
+            preload="none"
+            width="720"
+            height="540"
+          ></video>
+        </div>
+
+        <!-- Selected Freiburg Appearances -->
+        <div class="appearances">
+          <h3 class="appearances-title">Selected Freiburg Appearances</h3>
+          <div class="appearances-list">
+            <div class="appearance">
+              <p class="appearance-venue">Ruefetto</p>
+              <p class="appearance-meta">Recurring appearances · Event organizer since 2025</p>
+            </div>
+            <div class="appearance">
+              <p class="appearance-venue">KTS Freiburg</p>
+              <p class="appearance-meta">2 appearances · Solidarity events</p>
+            </div>
+            <div class="appearance">
+              <p class="appearance-venue">Mamita</p>
+              <p class="appearance-meta">3 appearances</p>
+            </div>
+            <div class="appearance">
+              <p class="appearance-venue">Harmonie Keller</p>
+              <p class="appearance-meta">1 appearance</p>
+            </div>
+            <div class="appearance">
+              <p class="appearance-venue">Opfinger Hütte</p>
+              <p class="appearance-meta">1 appearance · Organic House</p>
+            </div>
+          </div>
+          <div class="appearances-outdoor">
+            <p class="appearances-outdoor-title">Open Air</p>
+            <p class="appearances-outdoor-list">
+              Dietenbachpark (DIL3Y) · Eschholzpark (Mandabuska) · Seepark (Mandabuska)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" aria-labelledby="about-title">
+      <div class="about-inner">
+        <div class="about-photo">
+          <img
+            src="fotos_videos/IMG_20260225_081719_220.jpg"
+            alt="b.god portrait"
+            width="1068"
+            height="1068"
+            loading="lazy"
+          />
+        </div>
+        <div class="about-text">
+          <p class="section-label">About</p>
+          <h2 id="about-title" class="sr-only">About b.god</h2>
+          <p>
+            Brazilian-born and based in Freiburg, b.god has been performing as a DJ since 2024. He has played clubs, cultural spaces and open-air events across the city and has organized recurring electronic music nights at Ruefetto since 2025.
+          </p>
+          <p>
+            This page focuses specifically on his Tech House sets and club bookings.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="section booking-section" id="booking" aria-labelledby="booking-title">
+      <div class="booking-inner">
+        <p class="section-label">Booking</p>
+        <h2 id="booking-title" class="booking-title">Book b.god for Tech House</h2>
+        <p class="booking-subtitle">Club nights, showcases, electronic events</p>
+        <p class="booking-desc">
+          For booking inquiries, send the event date, venue, city and approximate set time.
+        </p>
+        <div class="booking-ctas">
+          <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com?subject=Tech%20House%20Booking%20Inquiry">
+            Booking Inquiry
+          </a>
+          <p class="booking-email">
+            Or email directly: <a href="mailto:contact@bgod-creaction.com">contact@bgod-creaction.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@bgod-creaction" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.instagram.com/b.god_c.reaction" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <span>© 2026 b.god</span>
+    <a href="/" class="footer-back">← Back to Home</a>
+  </footer>
+
+  <!-- Lite YouTube Embed -->
   <script>
-    (function () {
-      const container = document.getElementById("checkerBg");
+    (function() {
+      const container = document.getElementById('videoContainer');
       if (!container) return;
 
-      const SVG_VARIANTS = [
-        "../images/bgod_g1.svg",
-        "../images/bgod_g2.svg",
-        "../images/bgod_g3.svg"
-      ];
+      const playBtn = container.querySelector('.video-play-btn');
+      const videoId = '37dgNxpqr_Q';
+      let loaded = false;
 
-      const LOGO_COUNT = 14;
-      const MIN_OPACITY = 0.7;
-      const MAX_OPACITY = 1.0;
-      const CYCLE_INTERVAL = 10000;
-      const FADE_DURATION = 3000;
+      function loadIframe() {
+        if (loaded) return;
+        loaded = true;
 
-      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const logos = [];
-      const occupiedCells = new Set();
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+        iframe.title = 'b.god - Tech House Set';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
 
-      function rand(min, max) { return Math.random() * (max - min) + min; }
-      function pickVariant() { return SVG_VARIANTS[Math.floor(Math.random() * SVG_VARIANTS.length)]; }
-
-      function getSquareSize() {
-        const vw = window.innerWidth;
-        return Math.min(Math.max(140, vw * 0.18), 260) / 2;
+        container.innerHTML = '';
+        container.appendChild(iframe);
       }
 
-      function getGridDimensions() {
-        const squareSize = getSquareSize();
-        return { cols: Math.ceil(window.innerWidth / squareSize), rows: Math.ceil(window.innerHeight / squareSize), squareSize };
-      }
-
-      function cellKey(col, row) { return col + "," + row; }
-
-      function getRandomCell() {
-        const { cols, rows, squareSize } = getGridDimensions();
-        let col, row, key, attempts = 0;
-        do {
-          col = Math.floor(Math.random() * cols);
-          row = Math.floor(Math.random() * rows);
-          key = cellKey(col, row);
-          attempts++;
-        } while (occupiedCells.has(key) && attempts < 50);
-        return { col, row, key, squareSize };
-      }
-
-      function getCellCenter(col, row, squareSize) {
-        return { x: col * squareSize + squareSize / 2, y: row * squareSize + squareSize / 2 };
-      }
-
-      function isDarkSquare(col, row) { return (col + row) % 2 === 1; }
-
-      function createLogo() {
-        const img = document.createElement("img");
-        img.className = "checker-bg__logo";
-        img.alt = "";
-        img.setAttribute("aria-hidden", "true");
-        img.src = pickVariant();
-        img.style.setProperty("--logo-opacity", rand(MIN_OPACITY, MAX_OPACITY).toFixed(3));
-
-        const { col, row, key, squareSize } = getRandomCell();
-        const center = getCellCenter(col, row, squareSize);
-
-        img.style.left = center.x + "px";
-        img.style.top = center.y + "px";
-        img.dataset.cellKey = key;
-        img.dataset.col = col;
-        img.dataset.row = row;
-        occupiedCells.add(key);
-
-        img.classList.add(isDarkSquare(col, row) ? "checker-bg__logo--light" : "checker-bg__logo--dark");
-        if (Math.random() > 0.5) img.style.transform = "translate(-50%, -50%) scaleX(-1)";
-
-        container.appendChild(img);
-        requestAnimationFrame(() => requestAnimationFrame(() => img.classList.add("is-visible")));
-        return img;
-      }
-
-      function repositionLogo(img) {
-        img.classList.remove("is-visible");
-        occupiedCells.delete(img.dataset.cellKey);
-
-        setTimeout(() => {
-          const { col, row, key, squareSize } = getRandomCell();
-          const center = getCellCenter(col, row, squareSize);
-
-          img.style.left = center.x + "px";
-          img.style.top = center.y + "px";
-          img.dataset.cellKey = key;
-          img.dataset.col = col;
-          img.dataset.row = row;
-          occupiedCells.add(key);
-
-          img.classList.remove("checker-bg__logo--light", "checker-bg__logo--dark");
-          img.classList.add(isDarkSquare(col, row) ? "checker-bg__logo--light" : "checker-bg__logo--dark");
-          img.src = pickVariant();
-          img.style.setProperty("--logo-opacity", rand(MIN_OPACITY, MAX_OPACITY).toFixed(3));
-          if (Math.random() > 0.5) img.style.transform = "translate(-50%, -50%) scaleX(-1)";
-
-          requestAnimationFrame(() => img.classList.add("is-visible"));
-        }, FADE_DURATION);
-      }
-
-      for (let i = 0; i < LOGO_COUNT; i++) logos.push(createLogo());
-
-      let resizeTimeout;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          const squareSize = getSquareSize();
-          logos.forEach(img => {
-            const center = getCellCenter(parseInt(img.dataset.col), parseInt(img.dataset.row), squareSize);
-            img.style.left = center.x + "px";
-            img.style.top = center.y + "px";
-          });
-        }, 100);
-      }, { passive: true });
-
-      if (!prefersReduced) {
-        setInterval(() => repositionLogo(logos[Math.floor(Math.random() * logos.length)]), CYCLE_INTERVAL);
-
-        let scrollY = 0, currentY = 0;
-        const parallaxFactor = 0.15, ease = 0.08;
-        function onScroll() { scrollY = window.scrollY || 0; }
-        function animateParallax() {
-          currentY += (scrollY - currentY) * ease;
-          container.style.transform = `translate3d(0, ${-currentY * parallaxFactor}px, 0)`;
-          requestAnimationFrame(animateParallax);
-        }
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-        animateParallax();
-      }
+      playBtn.addEventListener('click', loadIframe);
     })();
   </script>
+
+  <!-- Autoplay loop videos when visible, pause when not -->
+  <script>
+    (function() {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var loopVideos = [
+        { video: document.getElementById('loopVideo'), container: document.getElementById('loopVideoContainer') },
+        { video: document.getElementById('liveVideo2'), container: document.getElementById('liveVideoContainer2') }
+      ];
+
+      loopVideos.forEach(function(item) {
+        var video = item.video;
+        var container = item.container;
+
+        if (!video || !container) return;
+
+        if (prefersReduced) {
+          video.removeAttribute('loop');
+          video.controls = true;
+          return;
+        }
+
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                video.play().catch(function() {});
+              } else {
+                video.pause();
+              }
+            });
+          }, { rootMargin: '50px', threshold: 0.25 });
+
+          observer.observe(container);
+        } else {
+          video.autoplay = true;
+          video.play().catch(function() {});
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
