@@ -522,12 +522,15 @@
       background: var(--bg);
     }
 
+    .live-inner {
+      max-width: 1000px;
+      margin-inline: auto;
+    }
+
     .live-editorial {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      max-width: 1000px;
-      margin-inline: auto;
     }
 
     .live-main {
@@ -591,8 +594,6 @@
       gap: 32px;
       margin-top: 40px;
       align-items: start;
-      max-width: 1000px;
-      margin-inline: auto;
     }
 
     .live-video--loop {
@@ -940,11 +941,12 @@
 
     <!-- LIVE -->
     <section class="section live-section" aria-labelledby="live-title">
-      <p class="section-label">Live</p>
-      <h2 id="live-title" class="sr-only">Live Performances</h2>
+      <div class="live-inner">
+        <p class="section-label">Live</p>
+        <h2 id="live-title" class="sr-only">Live Performances</h2>
 
-      <!-- Editorial 2-column layout -->
-      <div class="live-editorial">
+        <!-- Editorial 2-column layout -->
+        <div class="live-editorial">
         <div class="live-main">
           <div class="live-media">
             <img
@@ -1031,6 +1033,7 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
@@ -1058,20 +1061,19 @@
       </div>
     </section>
 
-    <!-- BOOKING -->
+    <!-- CONTACT -->
     <section class="section booking-section" id="booking" aria-labelledby="booking-title">
       <div class="booking-inner">
-        <p class="section-label">Booking</p>
-        <h2 id="booking-title" class="booking-title">Book b.god for Tech House</h2>
+        <p class="section-label">Contact</p>
+        <h2 id="booking-title" class="booking-title">b.god for Tech House</h2>
         <p class="booking-subtitle">Club nights, showcases, electronic events</p>
         <p class="booking-desc">
-          For booking inquiries, send the event date, venue, city and approximate set time.
+          Send the event date, venue, city and approximate set time.
         </p>
         <div class="booking-ctas">
-          <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com?subject=Tech%20House%20Booking%20Inquiry">
-            Email b.god
+          <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com?subject=Tech%20House%20Inquiry">
+            contact@bgod-creaction.com
           </a>
-          <p class="booking-email">contact@bgod-creaction.com</p>
         </div>
       </div>
     </section>
