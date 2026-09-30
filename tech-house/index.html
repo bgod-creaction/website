@@ -142,6 +142,12 @@
       background: var(--accent-dim);
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     /* ========= HERO (MOBILE-FIRST) ========= */
     .hero {
       padding: 72px 5vw 40px;
@@ -779,6 +785,23 @@
       margin: 0;
     }
 
+    .support-link {
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .support-link a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .support-link a:hover {
+      color: var(--accent);
+    }
+
     /* ========= FOOTER ========= */
     .footer {
       padding: 32px 8vw;
@@ -852,7 +875,10 @@
   <!-- NAV -->
   <nav class="nav">
     <a href="/" class="nav-brand">b.god</a>
-    <a href="#booking" class="nav-cta">Booking</a>
+    <div class="nav-links">
+      <a href="https://ko-fi.com/bgod_dj" class="nav-cta" target="_blank" rel="noopener noreferrer">Support</a>
+      <a href="#booking" class="nav-cta">Booking</a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -1075,6 +1101,9 @@
             contact@bgod-creaction.com
           </a>
         </div>
+        <p class="support-link">
+          <a href="https://ko-fi.com/bgod_dj" target="_blank" rel="noopener noreferrer">Buy me a coffee ☕</a>
+        </p>
       </div>
     </section>
   </main>

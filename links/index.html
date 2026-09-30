@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="b.god links - Brazilian DJ based in Freiburg, Germany" />
+  <title>b.god | Links</title>
+  <link rel="canonical" href="https://www.bgod-creaction.com/links/" />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.bgod-creaction.com/links/" />
+  <meta property="og:title" content="b.god | Links" />
+  <meta property="og:description" content="Brazilian DJ based in Freiburg - YouTube, Booking, Events" />
+  <meta property="og:image" content="https://www.bgod-creaction.com/images/profile.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: "MK Zodnig Square";
+      src: url("../fonts/mkzodsqu.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --bg: #0a0a0a;
+      --text: #f0f0f0;
+      --muted: #888888;
+      --accent: #5a9fff;
+      --accent-dim: rgba(90, 159, 255, 0.12);
+      --stroke: rgba(255, 255, 255, 0.08);
+      --font-display: "Space Grotesk", sans-serif;
+      --font-body: "Inter", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      min-height: 100%;
+      padding: 32px 20px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ========= HEADER ========= */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--stroke);
+      margin-bottom: 16px;
+    }
+
+    .name {
+      font-family: "MK Zodnig Square", sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ========= LINKS ========= */
+    .links {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+
+    .link-btn:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .link-btn--primary {
+      background: var(--accent-dim);
+      border-color: rgba(90, 159, 255, 0.3);
+    }
+
+    .link-btn--primary:hover {
+      border-color: var(--accent);
+      background: rgba(90, 159, 255, 0.2);
+    }
+
+    .link-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ========= EVENTS ========= */
+    .events-section {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .event {
+      display: flex;
+      gap: 14px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--stroke);
+      border-radius: 10px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .event:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .event--next {
+      background: rgba(90, 159, 255, 0.06);
+      border-color: rgba(90, 159, 255, 0.3);
+      position: relative;
+    }
+
+    .event--next::before {
+      content: "NEXT";
+      position: absolute;
+      top: -8px;
+      right: 12px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .event__thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--stroke);
+      flex-shrink: 0;
+    }
+
+    .event__info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .event__date {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .event__title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .event__style {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ========= FOOTER ========= */
+    .footer {
+      margin-top: auto;
+      padding-top: 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--text);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .footer a:hover {
+      border-color: var(--accent);
+    }
+
+    /* ========= NO EVENTS ========= */
+    .no-events {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img src="../images/profile.jpg" alt="b.god" class="avatar" />
+      <h1 class="name">b.god</h1>
+      <p class="tagline">Brazilian DJ · Freiburg, Germany</p>
+    </header>
+
+    <nav class="links">
+      <a href="https://www.youtube.com/@bgod-creaction" class="link-btn" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+      <a href="https://ko-fi.com/bgod_dj" class="link-btn" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
+        Buy me a coffee ☕
+      </a>
+      <a href="https://www.bgod-creaction.com" class="link-btn" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        Website
+      </a>
+      <a href="mailto:contact@bgod-creaction.com?subject=DJ%20Booking" class="link-btn link-btn--primary">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Booking
+      </a>
+    </nav>
+
+    <section class="events-section">
+      <h2 class="section-title">Upcoming Events</h2>
+      <div class="events-list" id="eventsList">
+        <p class="no-events">Loading events...</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 b.god · <a href="https://www.bgod-creaction.com">bgod-creaction.com</a></p>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      var eventsList = document.getElementById('eventsList');
+
+      fetch('../events.json')
+        .then(function(res) { return res.json(); })
+        .then(function(events) {
+          var today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          var upcoming = events
+            .filter(function(e) {
+              var eventDate = new Date(e.dateEnd || e.date);
+              return eventDate >= today;
+            })
+            .sort(function(a, b) {
+              return new Date(a.date) - new Date(b.date);
+            });
+
+          if (upcoming.length === 0) {
+            eventsList.innerHTML = '<p class="no-events">No upcoming events</p>';
+            return;
+          }
+
+          var html = upcoming.map(function(event, index) {
+            var startDate = new Date(event.date);
+            var dateStr = startDate.toLocaleDateString('en-GB', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric'
+            });
+
+            if (event.dateEnd) {
+              var endDate = new Date(event.dateEnd);
+              dateStr += ' – ' + endDate.toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'short'
+              });
+            }
+
+            var isNext = index === 0;
+            var className = 'event' + (isNext ? ' event--next' : '');
+
+            return '<a href="' + event.link + '" class="' + className + '" target="_blank" rel="noopener noreferrer">' +
+              '<img src="../images/' + event.image + '" alt="" class="event__thumb" />' +
+              '<div class="event__info">' +
+                '<p class="event__date">' + dateStr + '</p>' +
+                '<p class="event__title">' + event.title + '</p>' +
+                '<p class="event__style">' + event.style + '</p>' +
+              '</div>' +
+            '</a>';
+          }).join('');
+
+          eventsList.innerHTML = html;
+        })
+        .catch(function() {
+          eventsList.innerHTML = '<p class="no-events">Could not load events</p>';
+        });
+    })();
+  </script>
+</body>
+</html>

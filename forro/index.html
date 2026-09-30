@@ -169,9 +169,27 @@
       transition: border-color 0.2s ease, color 0.2s ease;
     }
 
-    .nav-back:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      color: var(--text);
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-cta {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 20px;
+      border: 1px solid var(--stroke);
+      border-radius: 4px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--accent);
+      background: rgba(232, 121, 249, 0.12);
     }
 
     .hero {
@@ -388,6 +406,23 @@
       border-bottom: 1px solid var(--stroke);
     }
 
+    .support-link {
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .support-link a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .support-link a:hover {
+      color: var(--accent);
+    }
+
     footer {
       padding: 24px 6vw;
       text-align: center;
@@ -413,7 +448,10 @@
   <div class="page">
     <nav class="nav">
       <a href="/" class="nav-brand">b.god</a>
-      <a href="/" class="nav-back">&larr; Back</a>
+      <div class="nav-links">
+        <a href="https://ko-fi.com/bgod_dj" class="nav-cta" target="_blank" rel="noopener noreferrer">Support</a>
+        <a href="/" class="nav-cta">&larr; Back</a>
+      </div>
     </nav>
 
     <header class="hero">
@@ -497,6 +535,9 @@
       <a class="btn btn-primary" href="mailto:contact@bgod-creaction.com?subject=Forr%C3%B3%20Festival%20Booking">Request Booking</a>
       <p class="booking-email">
         Or email directly: <a href="mailto:contact@bgod-creaction.com">contact@bgod-creaction.com</a>
+      </p>
+      <p class="support-link">
+        <a href="https://ko-fi.com/bgod_dj" target="_blank" rel="noopener noreferrer">Buy me a coffee ☕</a>
       </p>
     </section>
 

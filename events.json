@@ -1,8 +1,15 @@
 [
   {
+    "date": "2026-10-09",
+    "title": "Forró no Ilê | Ilê Brasil | Freiburg DE",
+    "style": "Forró",
+    "image": "forroile.jpeg",
+    "link": "https://www.instagram.com/p/Dd4JxhtO8Qa/"
+  },
+  {
     "date": "2026-10-04",
-    "title": " Sommer Abschied | Fun Strand | Freiburg DE",
-    "style": "Tech House & Afro House",
+    "title": "Sommer Abschied | Fun Strand | Freiburg DE",
+    "style": "Tech House",
     "image": "funstrand2.jpg",
     "link": "https://www.instagram.com/p/Ddy3Xzgsm18/"
   },
@@ -48,20 +55,6 @@
     "style": "São João vibes",
     "image": "arraia-capoeira.jpeg",
     "link": "https://www.instagram.com/artedeflorear_freiburg/"
-  },
-  {
-    "date": "2026-07-11",
-    "title": "D3D4 | Samba Roots | Freiburg DE",
-    "style": "Pagofunk",
-    "image": "samba-roots.jpeg",
-    "link": "https://www.instagram.com/reisundbohnenperkussion/"
-  },
-  {
-    "date": "2026-09-26",
-    "title": "Água da Fonte 2026 | Freiburg DE",
-    "style": "Forró",
-    "image": "",
-    "link": ""
   },
   {
     "date": "2026-05-01",
